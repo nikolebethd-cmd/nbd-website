@@ -266,22 +266,11 @@
         return;
       }
 
-      if (data.devMode) {
-        modalDevNote.style.display = '';
+      // Redirect to Stripe checkout
+      if (data.url) {
+        window.location.href = data.url;
+        return;
       }
-
-      // Trigger download
-      if (pendingPurchase.type === 'gallery') {
-        window.location.href = `/api/download/${galleryId}?token=${data.token}`;
-      } else {
-        const a = document.createElement('a');
-        a.href = `/api/download/${galleryId}/${encodeURIComponent(pendingPurchase.file)}?token=${data.token}`;
-        a.download = pendingPurchase.file;
-        a.click();
-      }
-
-      modalStatus.textContent = 'Download started!';
-      setTimeout(closeModal, 2000);
     } catch (err) {
       console.error(err);
       modalStatus.textContent = 'Something went wrong. Try again.';
@@ -293,6 +282,31 @@
     if (e.key === 'Escape' && modal.classList.contains('modal--visible')) closeModal();
   });
 
+  // ── Handle return from Stripe ─────────────────────────────────────────────
+  function handleStripeReturn() {
+    const token = params.get('download_token');
+    const type  = params.get('download_type');
+    const file  = params.get('download_file');
+    if (!token) return;
+
+    // Clean URL
+    const clean = new URL(window.location.href);
+    ['download_token','download_type','download_file'].forEach(k => clean.searchParams.delete(k));
+    window.history.replaceState({}, '', clean);
+
+    if (type === 'gallery') {
+      window.location.href = `/api/download/${galleryId}?token=${token}`;
+    } else if (file) {
+      const a = document.createElement('a');
+      a.href = `/api/download/${galleryId}/${encodeURIComponent(file)}?token=${token}`;
+      a.download = file;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+  }
+
   // ── Init ──────────────────────────────────────────────────────────────────
+  handleStripeReturn();
   loadGallery();
 })();

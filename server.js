@@ -18,6 +18,9 @@ const express = require('express');
 const session = require('express-session');
 const path    = require('path');
 const fs      = require('fs');
+const Stripe  = require('stripe');
+
+const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
 const CLOUD_NAME = process.env.CLOUDINARY_CLOUD_NAME || 'dljs01zmp';
 
@@ -152,28 +155,62 @@ app.get('/photos/:galleryId/:file', (req, res) => {
   return res.redirect(cloudinaryUrl(galleryId, file, gallery.watermark));
 });
 
-// ── Purchase (stub — replace with Stripe later) ───────────────────────────────
-app.post('/api/gallery/:id/purchase', (req, res) => {
+// ── Purchase — create Stripe Checkout session ─────────────────────────────────
+app.post('/api/gallery/:id/purchase', async (req, res) => {
   const galleries = loadGalleries();
   const gallery   = galleries.find(g => g.id === req.params.id);
   if (!gallery) return res.status(404).json({ error: 'Gallery not found' });
 
-  const { type, file } = req.body; // type: 'photo' | 'gallery'
+  const { type, file } = req.body;
+  const origin = `${req.protocol}://${req.get('host')}`;
 
-  if (DEV_MODE) {
-    // In dev mode, skip payment and return a download token immediately
-    const tokenFile = type === 'gallery' ? '*' : file;
-    const token = generateToken(gallery.id, tokenFile);
-    return res.json({
-      success: true,
-      devMode: true,
-      token,
-      message: 'Dev mode: payment skipped. Add Stripe before deploying.',
+  const isGallery = type === 'gallery';
+  const price     = isGallery ? gallery.pricing.fullGallery : gallery.pricing.perPhoto;
+  const name      = isGallery ? `Full Gallery — ${gallery.title}` : `Photo — ${gallery.title}`;
+
+  const encodedFile = encodeURIComponent(file || '');
+  const successUrl  = `${origin}/api/stripe/complete?session_id={CHECKOUT_SESSION_ID}&galleryId=${gallery.id}&type=${type}&file=${encodedFile}`;
+  const cancelUrl   = `${origin}/gallery.html?id=${gallery.id}`;
+
+  try {
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      line_items: [{
+        price_data: {
+          currency: 'usd',
+          product_data: { name },
+          unit_amount: Math.round(price * 100),
+        },
+        quantity: 1,
+      }],
+      mode: 'payment',
+      success_url: successUrl,
+      cancel_url:  cancelUrl,
     });
+    res.json({ url: session.url });
+  } catch (err) {
+    console.error('Stripe error:', err);
+    res.status(500).json({ error: 'Payment setup failed.' });
   }
+});
 
-  // TODO: create Stripe checkout session here
-  res.status(501).json({ error: 'Stripe not configured. Set DEV_MODE=true or add Stripe keys.' });
+// ── Stripe success — verify payment and redirect with token ───────────────────
+app.get('/api/stripe/complete', async (req, res) => {
+  const { session_id, galleryId, type, file } = req.query;
+  try {
+    const session = await stripe.checkout.sessions.retrieve(session_id);
+    if (session.payment_status !== 'paid') {
+      return res.redirect(`/gallery.html?id=${galleryId}&error=payment_failed`);
+    }
+    const tokenFile = type === 'gallery' ? '*' : decodeURIComponent(file || '');
+    const token = generateToken(galleryId, tokenFile);
+    const params = new URLSearchParams({ id: galleryId, download_token: token, download_type: type });
+    if (file) params.set('download_file', decodeURIComponent(file));
+    res.redirect(`/gallery.html?${params}`);
+  } catch (err) {
+    console.error('Stripe verify error:', err);
+    res.redirect(`/gallery.html?id=${galleryId}&error=verify_failed`);
+  }
 });
 
 // ── Download (unwatermarked) ──────────────────────────────────────────────────
