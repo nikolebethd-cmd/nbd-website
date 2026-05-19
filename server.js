@@ -16,9 +16,20 @@
 
 const express = require('express');
 const session = require('express-session');
-const sharp   = require('sharp');
 const path    = require('path');
 const fs      = require('fs');
+
+const CLOUD_NAME = process.env.CLOUDINARY_CLOUD_NAME || 'dljs01zmp';
+
+function cloudinaryUrl(galleryId, filename, watermark = false) {
+  const base = `https://res.cloudinary.com/${CLOUD_NAME}/image/upload`;
+  const name = path.parse(filename).name;
+  if (watermark) {
+    const overlay = 'l_text:Arial_60_bold:NBD,co_white,o_45,g_center';
+    return `${base}/${overlay}/galleries/${galleryId}/${name}.jpg`;
+  }
+  return `${base}/galleries/${galleryId}/${name}.jpg`;
+}
 
 const app  = express();
 const PORT = process.env.PORT || 3000;
@@ -28,19 +39,6 @@ const DEV_MODE = process.env.DEV_MODE !== 'false'; // true by default locally
 const galleriesPath = path.join(__dirname, 'galleries.json');
 function loadGalleries() {
   return JSON.parse(fs.readFileSync(galleriesPath, 'utf8')).galleries;
-}
-
-// ── Watermark SVG ───────────────────────────────────────────────────────────
-function makeWatermarkSVG(width, height) {
-  const fontSize = Math.max(24, Math.round(width * 0.06));
-  const spacing  = Math.round(fontSize * 0.5);
-  return Buffer.from(`
-    <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
-      <style>text { font-family: Arial, sans-serif; font-weight: bold; fill: white; fill-opacity: 0.45; }</style>
-      <text x="${width / 2}" y="${height / 2 - spacing}" text-anchor="middle" font-size="${fontSize}" letter-spacing="6">NBD</text>
-      <text x="${width / 2}" y="${height / 2 + spacing}" text-anchor="middle" font-size="${Math.round(fontSize * 0.45)}" letter-spacing="3">© nbd.photo</text>
-    </svg>
-  `);
 }
 
 // ── In-memory purchase token store ──────────────────────────────────────────
@@ -101,13 +99,7 @@ app.get('/api/gallery/:id', (req, res) => {
     return res.status(401).json({ error: 'Password required', private: true });
   }
 
-  const photosDir = path.join(__dirname, 'gallery-photos', gallery.id);
-  let photos = [];
-  if (fs.existsSync(photosDir)) {
-    photos = fs.readdirSync(photosDir)
-      .filter(f => /\.(jpe?g|png|webp|gif)$/i.test(f))
-      .sort();
-  }
+  const photos = gallery.photos || [];
 
   res.json({
     id:          gallery.id,
@@ -140,11 +132,10 @@ app.post('/api/gallery/:id/auth', (req, res) => {
   res.json({ success: true });
 });
 
-// ── Serve photo (watermarked) ─────────────────────────────────────────────────
-app.get('/photos/:galleryId/:file', async (req, res) => {
+// ── Serve photo (watermarked via Cloudinary) ──────────────────────────────────
+app.get('/photos/:galleryId/:file', (req, res) => {
   const { galleryId, file } = req.params;
 
-  // Sanitize filename
   if (!/^[\w\-. ]+\.(jpe?g|png|webp)$/i.test(file)) {
     return res.status(400).send('Invalid filename');
   }
@@ -153,39 +144,12 @@ app.get('/photos/:galleryId/:file', async (req, res) => {
   const gallery   = galleries.find(g => g.id === galleryId);
   if (!gallery) return res.status(404).send('Gallery not found');
 
-  // Check access for private galleries
   const unlockedGalleries = req.session.unlockedGalleries || [];
   if (gallery.private && !unlockedGalleries.includes(galleryId)) {
     return res.status(401).send('Unauthorized');
   }
 
-  const filePath = path.join(__dirname, 'gallery-photos', galleryId, file);
-  if (!fs.existsSync(filePath)) return res.status(404).send('Photo not found');
-
-  // No watermark needed
-  if (!gallery.watermark) {
-    return res.sendFile(filePath);
-  }
-
-  try {
-    const img      = sharp(filePath);
-    const meta     = await img.metadata();
-    const w        = meta.width  || 1200;
-    const h        = meta.height || 800;
-    const svgBuf   = makeWatermarkSVG(w, h);
-
-    const watermarked = await sharp(filePath)
-      .composite([{ input: svgBuf, blend: 'over' }])
-      .jpeg({ quality: 85 })
-      .toBuffer();
-
-    res.set('Content-Type', 'image/jpeg');
-    res.set('Cache-Control', 'private, max-age=300');
-    res.send(watermarked);
-  } catch (err) {
-    console.error('Watermark error:', err);
-    res.status(500).send('Image processing error');
-  }
+  return res.redirect(cloudinaryUrl(galleryId, file, gallery.watermark));
 });
 
 // ── Purchase (stub — replace with Stripe later) ───────────────────────────────
@@ -230,10 +194,7 @@ app.get('/api/download/:galleryId/:file', (req, res) => {
     return res.status(403).send('Invalid or expired download token');
   }
 
-  const filePath = path.join(__dirname, 'gallery-photos', galleryId, file);
-  if (!fs.existsSync(filePath)) return res.status(404).send('Photo not found');
-
-  res.download(filePath, file);
+  return res.redirect(cloudinaryUrl(galleryId, file, false));
 });
 
 // ── Download full gallery as zip ──────────────────────────────────────────────
@@ -249,24 +210,12 @@ app.get('/api/download/:galleryId', async (req, res) => {
     return res.status(403).send('Invalid or expired download token');
   }
 
-  const photosDir = path.join(__dirname, 'gallery-photos', galleryId);
-  if (!fs.existsSync(photosDir)) return res.status(404).send('Gallery photos not found');
-
-  const photos = fs.readdirSync(photosDir)
-    .filter(f => /\.(jpe?g|png|webp)$/i.test(f));
-
+  const photos = gallery.photos || [];
   if (photos.length === 0) return res.status(404).send('No photos in gallery');
 
-  // Stream a zip using only built-in Node — no extra dependency
-  const { execFile } = require('child_process');
-  const os   = require('os');
-  const uuid = Math.random().toString(36).slice(2);
-  const tmp  = path.join(os.tmpdir(), `nbd-${galleryId}-${uuid}.zip`);
-
-  execFile('zip', ['-j', tmp, ...photos.map(f => path.join(photosDir, f))], (err) => {
-    if (err) { console.error(err); return res.status(500).send('Zip failed'); }
-    res.download(tmp, `${gallery.title}.zip`, () => fs.unlinkSync(tmp));
-  });
+  // Return list of Cloudinary download URLs as JSON for client-side handling
+  const urls = photos.map(f => cloudinaryUrl(galleryId, f, false));
+  res.json({ title: gallery.title, urls });
 });
 
 // ── Start ─────────────────────────────────────────────────────────────────────
