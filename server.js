@@ -231,7 +231,14 @@ app.get('/api/download/:galleryId/:file', (req, res) => {
     return res.status(403).send('Invalid or expired download token');
   }
 
-  return res.redirect(cloudinaryUrl(galleryId, file, false));
+  // Proxy through server so browser downloads cross-origin file correctly
+  const url = cloudinaryUrl(galleryId, file, false);
+  const https = require('https');
+  https.get(url, (stream) => {
+    res.setHeader('Content-Disposition', `attachment; filename="${file}"`);
+    res.setHeader('Content-Type', 'image/jpeg');
+    stream.pipe(res);
+  }).on('error', () => res.status(500).send('Download failed'));
 });
 
 // ── Download full gallery as zip ──────────────────────────────────────────────
