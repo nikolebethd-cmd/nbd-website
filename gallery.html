@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery — NBD</title>
+  <meta name="description" content="Event photo gallery">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav__logo">N<span>B</span>D<small class="nav__logo-sub">Creative Studios</small></a>
+    <ul class="nav__links">
+      <li><a href="galleries.html" class="nav__link nav__link--active">Galleries</a></li>
+      <li><a href="art.html" class="nav__link">Art</a></li>
+      <li><a href="videography.html" class="nav__link">Video</a></li>
+      <li><a href="archive.html" class="nav__link">Archive</a></li>
+      <li><a href="commissions.html" class="nav__link">Commissions</a></li>
+      <li><a href="about.html" class="nav__link">About</a></li>
+    </ul>
+    <button class="nav__toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav__mobile">
+    <a href="galleries.html">Galleries</a>
+    <a href="art.html">Art</a>
+    <a href="videography.html">Video</a>
+    <a href="archive.html">Archive</a>
+    <a href="commissions.html">Commissions</a>
+    <a href="about.html">About</a>
+  </div>
+
+  <!-- Password Gate Overlay -->
+  <div id="password-gate" class="gate" aria-hidden="true">
+    <div class="gate__card">
+      <div class="gate__lock">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+      </div>
+      <h2 class="gate__title">Private Gallery</h2>
+      <p class="gate__desc">This gallery is password protected. Enter the access code to view.</p>
+      <form id="gate-form" class="gate__form">
+        <input
+          type="password"
+          id="gate-password"
+          class="gate__input"
+          placeholder="Enter password"
+          autocomplete="current-password"
+          required
+        >
+        <button type="submit" class="btn gate__btn">Unlock Gallery</button>
+        <p id="gate-error" class="gate__error" aria-live="polite"></p>
+      </form>
+      <a href="galleries.html" class="gate__back">← Back to galleries</a>
+    </div>
+  </div>
+
+  <!-- Gallery Header (populated by JS) -->
+  <header class="page-header" id="gallery-header" style="display:none">
+    <div class="accent-bar"></div>
+    <span class="label page-header__label" id="gallery-date"></span>
+    <h1 class="page-header__title" id="gallery-title"></h1>
+    <p class="page-header__desc" id="gallery-desc"></p>
+    <div class="gallery-header__actions" id="gallery-actions"></div>
+  </header>
+
+  <!-- Photo Grid -->
+  <section class="section" style="padding-top:0" id="gallery-section" style="display:none">
+    <div id="photo-grid" class="photo-grid"></div>
+    <div id="gallery-empty" class="gallery-empty" style="display:none">
+      <p>No photos in this gallery yet. Drop your photos into <code>gallery-photos/[gallery-id]/</code> and restart the server.</p>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <button class="lightbox__close" id="lightbox-close" aria-label="Close">✕</button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lightbox-prev" aria-label="Previous">‹</button>
+    <div class="lightbox__inner">
+      <img id="lightbox-img" src="" alt="Photo">
+      <div class="lightbox__info" id="lightbox-info"></div>
+    </div>
+    <button class="lightbox__nav lightbox__nav--next" id="lightbox-next" aria-label="Next">›</button>
+  </div>
+
+  <!-- Purchase Modal -->
+  <div id="purchase-modal" class="modal" aria-hidden="true">
+    <div class="modal__card">
+      <button class="modal__close" id="modal-close" aria-label="Close">✕</button>
+      <h3 class="modal__title" id="modal-title">Download Photo</h3>
+      <p class="modal__desc" id="modal-desc"></p>
+      <div class="modal__price" id="modal-price"></div>
+      <div id="modal-dev-notice" class="modal__dev-notice" style="display:none">
+        Dev mode — payment skipped. Add Stripe before deploying.
+      </div>
+      <button class="btn modal__btn" id="modal-confirm">Purchase & Download</button>
+      <p id="modal-status" class="modal__status" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <p class="footer__brand">N<span style="color:var(--color-red)">B</span>D</p>
+        <p class="footer__tagline">Photography, art, and film from the mountains to the sea.</p>
+      </div>
+      <div class="footer__links">
+        <div class="footer__col">
+          <p class="footer__col-title">Work</p>
+          <a href="galleries.html">Galleries</a>
+          <a href="art.html">Art</a>
+          <a href="videography.html">Videography</a>
+          <a href="archive.html">Archive</a>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Connect</p>
+          <a href="commissions.html">Commissions</a>
+          <a href="about.html">About</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">&copy; 2025 NBD. All rights reserved.</div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/gallery.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Videography — NBD</title>
+  <meta name="description" content="Ski films, surf edits, adventure videos, and cinematic short films.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav__logo">N<span>B</span>D<small class="nav__logo-sub">Creative Studios</small></a>
+    <ul class="nav__links">
+      <li><a href="galleries.html" class="nav__link">Galleries</a></li>
+      <li><a href="art.html" class="nav__link">Art</a></li>
+      <li><a href="videography.html" class="nav__link nav__link--active">Video</a></li>
+      <li><a href="archive.html" class="nav__link">Archive</a></li>
+      <li><a href="commissions.html" class="nav__link">Commissions</a></li>
+      <li><a href="about.html" class="nav__link">About</a></li>
+    </ul>
+    <button class="nav__toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav__mobile">
+    <a href="galleries.html">Galleries</a>
+    <a href="art.html">Art</a>
+    <a href="videography.html">Video</a>
+    <a href="archive.html">Archive</a>
+    <a href="commissions.html">Commissions</a>
+    <a href="about.html">About</a>
+  </div>
+
+  <header class="page-header">
+    <div class="accent-bar"></div>
+    <span class="label page-header__label">Film</span>
+    <h1 class="page-header__title">Video</h1>
+    <p class="page-header__desc">
+      Short edits, film projects, and everything in between.
+    </p>
+  </header>
+
+  <section class="section" style="padding-top:0">
+    <div id="video-filters" class="video-filters" style="display:none"></div>
+    <div id="video-grid" class="video-grid"></div>
+  </section>
+
+  <!-- Video lightbox -->
+  <div id="video-lightbox" class="video-lightbox" aria-hidden="true">
+    <button class="video-lightbox__close" id="vlb-close" aria-label="Close">&times;</button>
+    <div class="video-lightbox__inner">
+      <div class="video-lightbox__player" id="vlb-player"></div>
+      <div class="video-lightbox__meta">
+        <h3 class="video-lightbox__title" id="vlb-title"></h3>
+        <p class="video-lightbox__info" id="vlb-info"></p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <p class="footer__brand">N<span style="color:var(--color-red)">B</span>D</p>
+        <p class="footer__tagline">Photography, art, and film from the mountains to the sea.</p>
+      </div>
+      <div class="footer__links">
+        <div class="footer__col">
+          <p class="footer__col-title">Work</p>
+          <a href="galleries.html">Galleries</a>
+          <a href="art.html">Art</a>
+          <a href="videography.html">Videography</a>
+          <a href="archive.html">Archive</a>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Connect</p>
+          <a href="commissions.html">Commissions</a>
+          <a href="about.html">About</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">&copy; 2025 NBD. All rights reserved.</div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+# Large media files - stored separately in cloud
+gallery-photos/*/
+videos/
+images/*.jpg
+images/*.jpeg
+images/*.png
+images/*.mov
+images/*.mp4
+
+# Dependencies
+node_modules/
+
+# Environment
+.env
+.env.local

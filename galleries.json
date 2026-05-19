@@ -1,0 +1,64 @@
+{
+  "galleries": [
+    {
+      "id": "ovgs-powder-keg-011826",
+      "title": "OVGS at Powder Keg 1.18.26",
+      "coverImage": "/photos/ovgs-powder-keg-011826/IMG_1796.jpg",
+      "description": "",
+      "date": "January 18, 2026",
+      "private": false,
+      "password": null,
+      "watermark": true,
+      "pricing": {
+        "perPhoto": 0.50,
+        "fullGallery": 15
+      },
+      "photos": []
+    },
+    {
+      "id": "ovgs-powder-keg-022126",
+      "title": "OVGS at Powder Keg 2.21.26",
+      "coverImage": "/photos/ovgs-powder-keg-022126/IMG_2141.jpg",
+      "description": "",
+      "date": "February 21, 2026",
+      "private": false,
+      "password": null,
+      "watermark": true,
+      "pricing": {
+        "perPhoto": 0.50,
+        "fullGallery": 15
+      },
+      "photos": []
+    },
+    {
+      "id": "ovgs-nordic-valley-032126",
+      "title": "OVGS at Nordic Valley 3.21.26",
+      "coverImage": "/photos/ovgs-nordic-valley-032126/IMG_2470.jpg",
+      "description": "",
+      "date": "March 21, 2026",
+      "private": false,
+      "password": null,
+      "watermark": true,
+      "pricing": {
+        "perPhoto": 0.50,
+        "fullGallery": 15
+      },
+      "photos": []
+    },
+    {
+      "id": "powder-mountain-closing-032226",
+      "title": "Powder Mountain Closing Day 3.22.26",
+      "coverImage": "/photos/powder-mountain-closing-032226/IMG_2540.jpg",
+      "description": "",
+      "date": "March 22, 2026",
+      "private": false,
+      "password": null,
+      "watermark": true,
+      "pricing": {
+        "perPhoto": 0.50,
+        "fullGallery": 15
+      },
+      "photos": []
+    }
+  ]
+}

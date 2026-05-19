@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commissions — NBD</title>
+  <meta name="description" content="Commission custom artwork, photography, or video projects. Get in touch to discuss your vision.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav__logo">N<span>B</span>D<small class="nav__logo-sub">Creative Studios</small></a>
+    <ul class="nav__links">
+      <li><a href="galleries.html" class="nav__link">Galleries</a></li>
+      <li><a href="art.html" class="nav__link">Art</a></li>
+      <li><a href="videography.html" class="nav__link">Video</a></li>
+      <li><a href="archive.html" class="nav__link">Archive</a></li>
+      <li><a href="commissions.html" class="nav__link nav__link--active">Commissions</a></li>
+      <li><a href="about.html" class="nav__link">About</a></li>
+    </ul>
+    <button class="nav__toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav__mobile">
+    <a href="galleries.html">Galleries</a>
+    <a href="art.html">Art</a>
+    <a href="videography.html">Video</a>
+    <a href="archive.html">Archive</a>
+    <a href="commissions.html">Commissions</a>
+    <a href="about.html">About</a>
+  </div>
+
+  <header class="page-header">
+    <div class="accent-bar"></div>
+    <span class="label page-header__label">Work With Me</span>
+    <h1 class="page-header__title">Commissions</h1>
+    <p class="page-header__desc">
+      Custom paintings, photo shoots, video projects — let's bring your vision to life.
+    </p>
+  </header>
+
+  <section class="section" style="padding-top:0">
+    <div class="commission-layout">
+
+      <div class="commission__info reveal">
+        <h2>How it works</h2>
+        <p>
+          Every commission starts with a conversation. Whether you're looking for a custom landscape painting,
+          event coverage, or a film project, I want to understand your vision before we start.
+        </p>
+        <p>
+          I work across painting, photography, and video — so whether it's a canvas for your wall,
+          coverage of your event, or a cinematic edit of your adventure, we can make it happen.
+        </p>
+
+        <div class="commission__process">
+          <div class="commission__step">
+            <span class="commission__step-num">1</span>
+            <div class="commission__step-text">
+              <h4>Reach Out</h4>
+              <p>Fill out the form with your idea, budget, and timeline. No commitment — just a starting point.</p>
+            </div>
+          </div>
+          <div class="commission__step">
+            <span class="commission__step-num">2</span>
+            <div class="commission__step-text">
+              <h4>We Talk</h4>
+              <p>We'll discuss the details — subject, size, medium, location, deliverables — whatever applies.</p>
+            </div>
+          </div>
+          <div class="commission__step">
+            <span class="commission__step-num">3</span>
+            <div class="commission__step-text">
+              <h4>I Create</h4>
+              <p>I'll get to work and keep you in the loop with progress updates along the way.</p>
+            </div>
+          </div>
+          <div class="commission__step">
+            <span class="commission__step-num">4</span>
+            <div class="commission__step-text">
+              <h4>You Receive</h4>
+              <p>Final delivery — whether it's a painting shipped to your door or a finished video file.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <form id="commission-form" class="form">
+          <div class="form__row">
+            <div class="form__group">
+              <label class="form__label" for="comm-name">Name</label>
+              <input class="form__input" type="text" id="comm-name" name="name" required>
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="comm-email">Email</label>
+              <input class="form__input" type="email" id="comm-email" name="email" required>
+            </div>
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="comm-type">Type of Commission</label>
+            <select class="form__select" id="comm-type" name="type" required>
+              <option value="" disabled selected>Select one</option>
+              <option value="painting">Custom Painting</option>
+              <option value="photography">Photography / Event Coverage</option>
+              <option value="video">Video / Film Project</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form__row">
+            <div class="form__group">
+              <label class="form__label" for="comm-budget">Budget Range</label>
+              <select class="form__select" id="comm-budget" name="budget">
+                <option value="" disabled selected>Select range</option>
+                <option value="under-500">Under $500</option>
+                <option value="500-1000">$500 – $1,000</option>
+                <option value="1000-2500">$1,000 – $2,500</option>
+                <option value="2500+">$2,500+</option>
+                <option value="not-sure">Not sure yet</option>
+              </select>
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="comm-timeline">Timeline</label>
+              <select class="form__select" id="comm-timeline" name="timeline">
+                <option value="" disabled selected>Select timeline</option>
+                <option value="flexible">Flexible</option>
+                <option value="1-2-weeks">1–2 weeks</option>
+                <option value="1-month">~1 month</option>
+                <option value="2-3-months">2–3 months</option>
+                <option value="no-rush">No rush</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="comm-details">Tell me about your project</label>
+            <textarea class="form__textarea" id="comm-details" name="details" placeholder="Describe your vision — subject, size, style, location, or anything else that helps me understand what you're looking for." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--filled btn--arrow"><span>Send Inquiry</span></button>
+
+          <div class="form__success" style="margin-top:1.5rem">
+            Your email client should open with the inquiry details. If it doesn't, feel free to email me directly!
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- General Contact -->
+  <section class="section reveal" style="border-top:1px solid var(--color-border);margin-top:2rem">
+    <div class="section__header">
+      <span class="label section__label">General</span>
+      <h2 class="section__title">Just want to say hi?</h2>
+      <p class="section__desc">Not looking for a commission — just want to connect? Drop me a message.</p>
+    </div>
+    <form id="contact-form" class="form" style="margin-top:2rem">
+      <div class="form__row">
+        <div class="form__group">
+          <label class="form__label" for="contact-name">Name</label>
+          <input class="form__input" type="text" id="contact-name" name="name" required>
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="contact-email">Email</label>
+          <input class="form__input" type="email" id="contact-email" name="email" required>
+        </div>
+      </div>
+      <div class="form__group">
+        <label class="form__label" for="contact-message">Message</label>
+        <textarea class="form__textarea" id="contact-message" name="message" placeholder="What's on your mind?" required></textarea>
+      </div>
+      <button type="submit" class="btn btn--arrow"><span>Send Message</span></button>
+      <div class="form__success" style="margin-top:1.5rem">
+        Your email client should open with the message. If it doesn't, feel free to email me directly!
+      </div>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <p class="footer__brand">N<span style="color:var(--color-red)">B</span>D</p>
+        <p class="footer__tagline">Photography, art, and film from the mountains to the sea.</p>
+      </div>
+      <div class="footer__links">
+        <div class="footer__col">
+          <p class="footer__col-title">Work</p>
+          <a href="galleries.html">Galleries</a>
+          <a href="art.html">Art</a>
+          <a href="videography.html">Videography</a>
+          <a href="archive.html">Archive</a>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Connect</p>
+          <a href="commissions.html">Commissions</a>
+          <a href="about.html">About</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">&copy; 2025 NBD. All rights reserved.</div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
