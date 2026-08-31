@@ -24,14 +24,24 @@ const stripe = process.env.STRIPE_SECRET_KEY ? Stripe(process.env.STRIPE_SECRET_
 
 const CLOUD_NAME = process.env.CLOUDINARY_CLOUD_NAME || 'dljs01zmp';
 
-function cloudinaryUrl(galleryId, filename, watermark = false) {
+// width: cap the delivered size for on-screen browsing. Omit it for
+// downloads — buyers get the full-resolution original.
+function cloudinaryUrl(galleryId, filename, watermark = false, width = 0) {
   const base = `https://res.cloudinary.com/${CLOUD_NAME}/image/upload`;
   const name = path.parse(filename).name;
-  if (watermark) {
-    const overlay = 'l_text:Arial_60_bold:NBD,co_white,o_45,g_center';
-    return `${base}/${overlay}/galleries/${galleryId}/${name}.jpg`;
-  }
-  return `${base}/galleries/${galleryId}/${name}.jpg`;
+  const parts = [];
+  if (width) parts.push(`w_${width},c_limit,q_auto,f_auto`);
+  if (watermark) parts.push('l_text:Arial_60_bold:NBD,co_white,o_45,g_center');
+  const transform = parts.length ? parts.join('/') + '/' : '';
+  return `${base}/${transform}galleries/${galleryId}/${name}.jpg`;
+}
+
+// Only serve a few sizes so Cloudinary caches them, and so a crafted
+// ?w= can't be used to generate unlimited transformations.
+const PREVIEW_WIDTHS = [480, 800, 1400];
+function previewWidth(requested) {
+  const w = parseInt(requested, 10);
+  return PREVIEW_WIDTHS.includes(w) ? w : 1400;
 }
 
 const app  = express();
@@ -162,7 +172,7 @@ app.get('/photos/:galleryId/:file', (req, res) => {
     return res.status(401).send('Unauthorized');
   }
 
-  return res.redirect(cloudinaryUrl(galleryId, file, gallery.watermark));
+  return res.redirect(cloudinaryUrl(galleryId, file, gallery.watermark, previewWidth(req.query.w)));
 });
 
 // ── Purchase — create Stripe Checkout session ─────────────────────────────────

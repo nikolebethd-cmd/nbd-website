@@ -1429,7 +1429,9 @@ h4 {
 /* Responsive */
 @media (max-width: 768px) {
   .feature-grid { grid-template-columns: 1fr; }
-  .feature-tile { aspect-ratio: 4/3; }
+  /* Square, same as desktop — the tiles are cropped to 1:1 in Cloudinary,
+     so a 4:3 box here re-cropped them differently on phones. */
+  .feature-tile { aspect-ratio: 1 / 1; }
   .home-statement__inner { grid-template-columns: 1fr; gap: 2.5rem; }
   .home-statement__left { flex-direction: column; align-items: flex-start; }
 }
@@ -2437,10 +2439,26 @@ h4 {
 }
 
 /* One page at a time on phones */
+/* Keep the two-page spread on phones — it's the whole look of the thing.
+   Pages get smaller, so trim the padding and let the book use the full
+   width of the screen. Tap a page to see it full size. */
 @media (max-width: 700px) {
-  .sketchbook__page--left { display: none; }
-  .sketchbook__page--right { width: 100%; border-radius: 4px; box-shadow: none; }
-  .sketchbook__spine, .sketchbook__flip { display: none !important; }
+  .sketchbook {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);   /* break out of the section padding */
+    margin-right: calc(50% - 50vw);
+  }
+  .sketchbook__book {
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.18);
+    border-radius: 0;
+  }
+  .sketchbook__page,
+  .sketchbook__face { padding: 0.5rem; }
+  .sketchbook__page--left,
+  .sketchbook__page--right { border-radius: 0; }
+  .sketchbook__controls { gap: 1.5rem; margin-top: 1.5rem; }
+  .sketchbook__counter { min-width: 110px; font-size: 0.75rem; }
+  .sketchbook__btn { width: 42px; height: 42px; }
 }
 
 /* Prints fill the page edge-to-edge — no padding, no border.
@@ -2457,4 +2475,17 @@ h4 {
   max-width: none;
   max-height: none;
   object-fit: cover;
+}
+
+/* Menu button bars are a background, not a color — the light-page rule
+   only set color, leaving them white on white. */
+.page--light .nav__toggle span {
+  background: #111111;
+}
+/* Mobile menu overlay should match the page it opens from */
+.page--light .nav__mobile {
+  background: #ffffff;
+}
+.page--light .nav__mobile a {
+  color: #111111;
 }

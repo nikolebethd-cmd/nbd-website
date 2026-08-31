@@ -317,9 +317,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- Sketchbooks: flip through a set of images two pages at a time ---
-  // Each .sketchbook element declares data-source (a key on SITE_DATA).
-  // Hidden automatically while its source is empty.
+  // --- Sketchbooks: flip through a set of images ---
+  // Two-page spread on desktop, one page at a time on phones.
+  // Each .sketchbook declares data-source (a key on SITE_DATA).
   document.querySelectorAll('.sketchbook').forEach(root => {
     const section = root.closest('section');
     const pages = (SITE_DATA[root.dataset.source] || []).map(a => a.image).filter(Boolean);
@@ -339,11 +339,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = q('.js-sb-prev');
     const nextBtn = q('.js-sb-next');
 
-    let spread = 0;                                  // index of the left-hand page
-    const lastSpread = Math.max(0, (Math.ceil(pages.length / 2) - 1) * 2);
-    let busy = false;
+    let index = 0;                                   // index of the left-hand page
+    let busy  = false;
+    const step = () => 2;
+    const last = () => Math.max(0, (Math.ceil(pages.length / 2) - 1) * 2);
 
-    // Blank rather than broken when a spread runs past the end
     function paint(img, i) {
       const s = pages[i] || '';
       img.style.visibility = s ? 'visible' : 'hidden';
@@ -351,35 +351,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function render() {
-      paint(left,  spread);
-      paint(right, spread + 1);
+      paint(left, index);
+      paint(right, index + 1);
       counter.textContent =
-        `${Math.min(spread + 1, pages.length)}–${Math.min(spread + 2, pages.length)} / ${pages.length}`;
-      prevBtn.disabled = spread === 0;
-      nextBtn.disabled = spread >= lastSpread;
+        `${Math.min(index + 1, pages.length)}–${Math.min(index + 2, pages.length)} / ${pages.length}`;
+      prevBtn.disabled = index === 0;
+      nextBtn.disabled = index >= last();
     }
 
     function turn(dir) {
       if (busy) return;
-      const target = spread + dir * 2;
-      if (target < 0 || target > lastSpread) return;
-      busy = true;
+      const target = index + dir * step();
+      if (target < 0 || target > last()) return;
 
+      busy = true;
       if (dir > 0) {
-        // Right page lifts and turns left; its back reveals the next left page
-        paint(front, spread + 1);
+        paint(front, index + 1);
         paint(back,  target);
         flip.className = 'sketchbook__flip js-sb-flip sketchbook__flip--right';
       } else {
-        // Left page turns back to the right, revealing the previous spread
-        paint(front, spread);
+        paint(front, index);
         paint(back,  target + 1);
         flip.className = 'sketchbook__flip js-sb-flip sketchbook__flip--left';
       }
       requestAnimationFrame(() => flip.classList.add('is-turning'));
 
       setTimeout(() => {
-        spread = target;
+        index = target;
         render();
         flip.className = 'sketchbook__flip js-sb-flip';
         busy = false;
@@ -388,7 +386,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     nextBtn.addEventListener('click', () => turn(1));
     prevBtn.addEventListener('click', () => turn(-1));
-    // Arrow keys drive whichever book you last touched
     root.addEventListener('keydown', e => {
       if (e.key === 'ArrowRight') turn(1);
       if (e.key === 'ArrowLeft')  turn(-1);

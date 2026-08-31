@@ -130,7 +130,11 @@
       <div class="photo-item reveal" data-index="${i}">
         <div class="photo-item__inner">
           <img
-            src="/photos/${galleryId}/${encodeURIComponent(file)}"
+            src="/photos/${galleryId}/${encodeURIComponent(file)}?w=800"
+            srcset="/photos/${galleryId}/${encodeURIComponent(file)}?w=480 480w,
+                    /photos/${galleryId}/${encodeURIComponent(file)}?w=800 800w,
+                    /photos/${galleryId}/${encodeURIComponent(file)}?w=1400 1400w"
+            sizes="(max-width: 700px) 92vw, (max-width: 1024px) 45vw, 30vw"
             alt="Photo ${i + 1}"
             loading="lazy"
             class="photo-item__img"
@@ -198,7 +202,7 @@
 
   function updateLightbox() {
     const file = photos[lightboxIndex];
-    lightboxImg.src = `/photos/${galleryId}/${encodeURIComponent(file)}`;
+    lightboxImg.src = `/photos/${galleryId}/${encodeURIComponent(file)}?w=1400`;
     lightboxImg.alt = `Photo ${lightboxIndex + 1} of ${photos.length}`;
     lightboxInfo.textContent = `${lightboxIndex + 1} / ${photos.length}`;
     lbPrev.style.display = lightboxIndex === 0 ? 'none' : '';
