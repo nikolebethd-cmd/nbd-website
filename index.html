@@ -4,7 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NBD — No Big Deal Creative Studios</title>
-  <meta name="description" content="Film, photography, and art from the mountains to the ocean. No Big Deal Creative Studios.">
+  <meta name="description" content="Ski and outdoor event photography, films, and original art. On-mountain event coverage, ski edits, and surf films by No Big Deal Creative Studios.">
+
+  <!-- Link previews (shared in applications, messages, social) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NBD Creative Studios">
+  <meta property="og:title" content="NBD — No Big Deal Creative Studios">
+  <meta property="og:description" content="Ski and outdoor event photography, films, and original art.">
+  <meta property="og:url" content="https://www.nbdcreativestudios.com/">
+  <meta property="og:image" content="https://res.cloudinary.com/dljs01zmp/image/upload/c_fill,g_auto,w_1200,h_630,q_auto,f_auto/site-photos/surf-turn.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -74,26 +84,72 @@
   <section class="section--full">
     <div class="feature-grid">
       <a href="galleries.html" class="feature-tile">
-        <img src="https://res.cloudinary.com/dljs01zmp/image/upload/v1779179362/site-images/paint-pink-ski.jpg" alt="Photography">
+        <img src="https://res.cloudinary.com/dljs01zmp/image/upload/c_fill,ar_1:1,g_auto,w_900,q_auto,f_auto/site-photos/surf-turn.jpg" alt="Surf photography — off-the-lip turn">
         <div class="feature-tile__overlay">
           <span class="feature-tile__label">Photography</span>
           <span class="feature-tile__sublabel">Event Galleries</span>
         </div>
       </a>
       <a href="art.html" class="feature-tile">
-        <img src="https://res.cloudinary.com/dljs01zmp/image/upload/v1779179372/site-images/paint-xpression.jpg" alt="Art">
+        <img src="https://res.cloudinary.com/dljs01zmp/image/upload/c_fill,ar_1:1,g_auto,w_900,q_auto,f_auto/site-images/paint-sailboats.jpg" alt="Original painting — sailboats">
         <div class="feature-tile__overlay">
           <span class="feature-tile__label">Art</span>
           <span class="feature-tile__sublabel">Originals for Sale</span>
         </div>
       </a>
       <a href="videography.html" class="feature-tile">
-        <img src="https://res.cloudinary.com/dljs01zmp/image/upload/v1779179351/site-images/paint-big-wave.jpg" alt="Video">
+        <img src="https://res.cloudinary.com/dljs01zmp/video/upload/so_30,c_fill,ar_1:1,g_auto,w_900,q_auto,f_auto/site-videos/south-beach-swell.jpg" alt="Film still — surfing South Beach Swell">
         <div class="feature-tile__overlay">
           <span class="feature-tile__label">Video</span>
-          <span class="feature-tile__sublabel">Films & Edits</span>
+          <span class="feature-tile__sublabel">Films &amp; Edits</span>
         </div>
       </a>
+    </div>
+  </section>
+
+  <!-- Selected Work — static so it renders without JS (link previews, crawlers) -->
+  <section class="section">
+    <div class="section__header">
+      <div class="accent-bar"></div>
+      <span class="label section__label">Recent Shoots</span>
+      <h2 class="section__title">Selected Work</h2>
+      <p class="section__desc">On-mountain event photography — full galleries from this season.</p>
+    </div>
+    <div class="card-grid card-grid--three">
+
+      <div class="gallery-card reveal">
+        <div class="gallery-card__image">
+          <img src="https://res.cloudinary.com/dljs01zmp/image/upload/c_fill,ar_16:10,g_auto,w_800,q_auto,f_auto/galleries/powder-mountain-closing-032226/IMG_2540.jpg" alt="Powder Mountain Closing Day 3.22.26" loading="lazy">
+        </div>
+        <div class="gallery-card__body">
+          <div class="gallery-card__meta">March 22, 2026</div>
+          <h3 class="gallery-card__title">Powder Mountain Closing Day</h3>
+          <a href="gallery.html?id=powder-mountain-closing-032226" class="btn btn--small btn--arrow"><span>View Gallery</span></a>
+        </div>
+      </div>
+
+      <div class="gallery-card reveal">
+        <div class="gallery-card__image">
+          <img src="https://res.cloudinary.com/dljs01zmp/image/upload/c_fill,ar_16:10,g_auto,w_800,q_auto,f_auto/galleries/ovgs-nordic-valley-032126/IMG_2470.jpg" alt="OVGS at Nordic Valley 3.21.26" loading="lazy">
+        </div>
+        <div class="gallery-card__body">
+          <div class="gallery-card__meta">March 21, 2026</div>
+          <h3 class="gallery-card__title">OVGS at Nordic Valley</h3>
+          <a href="gallery.html?id=ovgs-nordic-valley-032126" class="btn btn--small btn--arrow"><span>View Gallery</span></a>
+        </div>
+      </div>
+
+      <div class="gallery-card reveal">
+        <div class="gallery-card__image">
+          <img src="https://res.cloudinary.com/dljs01zmp/image/upload/c_fill,ar_16:10,g_auto,w_800,q_auto,f_auto/galleries/ovgs-powder-keg-022126/IMG_2141.jpg" alt="OVGS at Powder Keg 2.21.26" loading="lazy">
+        </div>
+        <div class="gallery-card__body">
+          <div class="gallery-card__meta">February 21, 2026</div>
+          <h3 class="gallery-card__title">OVGS at Powder Keg</h3>
+          <a href="gallery.html?id=ovgs-powder-keg-022126" class="btn btn--small btn--arrow"><span>View Gallery</span></a>
+        </div>
+      </div>
+
     </div>
   </section>
 

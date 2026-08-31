@@ -1,0 +1,149 @@
+{
+  "note": "Backup of js/data.js artPieces, taken before clearing the art page on 2026-08-30. Images remain in Cloudinary; these are just the entries.",
+  "artPieces": [
+    {
+      "title": "Xpression",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179372/site-images/paint-xpression.jpg",
+      "medium": "Acrylic on canvas",
+      "size": "24\" × 24\"",
+      "price": 950,
+      "status": "available"
+    },
+    {
+      "title": "Big Wave",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179351/site-images/paint-big-wave.jpg",
+      "medium": "Acrylic on canvas",
+      "size": "18\" × 24\"",
+      "price": 850,
+      "status": "available"
+    },
+    {
+      "title": "Blue Surfer",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179352/site-images/paint-blue-surfer.jpg",
+      "medium": "Acrylic on canvas",
+      "size": "24\" × 30\"",
+      "price": 900,
+      "status": "available"
+    },
+    {
+      "title": "Powder Run",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179364/site-images/paint-powder-run.jpg",
+      "medium": "Acrylic on canvas",
+      "size": "18\" × 24\"",
+      "price": 800,
+      "status": "available"
+    },
+    {
+      "title": "Pink Mountain",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179360/site-images/paint-pink-mountain.jpg",
+      "medium": "Acrylic on canvas",
+      "size": "16\" × 20\"",
+      "price": 700,
+      "status": "available"
+    },
+    {
+      "title": "The Wave",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179371/site-images/paint-the-wave.jpg",
+      "medium": "Acrylic on canvas",
+      "size": "24\" × 30\"",
+      "price": 875,
+      "status": "available"
+    },
+    {
+      "title": "Sunset Surf",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179369/site-images/paint-sunset-surf.jpg",
+      "medium": "Acrylic on canvas",
+      "size": "16\" × 20\"",
+      "price": 750,
+      "status": "available"
+    },
+    {
+      "title": "Sailboat Sunset",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179367/site-images/paint-sailboat-sunset.jpg",
+      "medium": "Acrylic & mixed media on canvas",
+      "size": "20\" × 20\"",
+      "price": 780,
+      "status": "available"
+    },
+    {
+      "title": "Heading Out",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179356/site-images/paint-heading-out.jpg",
+      "medium": "Acrylic on canvas",
+      "size": "12\" × 18\"",
+      "price": 620,
+      "status": "available"
+    },
+    {
+      "title": "Powder Country",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179363/site-images/paint-powder-country.jpg",
+      "medium": "Acrylic & stencil on canvas",
+      "size": "18\" × 24\"",
+      "price": 750,
+      "status": "available"
+    },
+    {
+      "title": "The Run",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179370/site-images/paint-the-run.jpg",
+      "medium": "Acrylic on canvas",
+      "size": "16\" × 20\"",
+      "price": 680,
+      "status": "available"
+    },
+    {
+      "title": "Pink Mountain Kids",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179362/site-images/paint-pink-ski.jpg",
+      "medium": "Acrylic on canvas",
+      "size": "16\" × 16\"",
+      "price": 650,
+      "status": "available"
+    },
+    {
+      "title": "Life Is a Game",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179358/site-images/paint-life-is-a-game.jpg",
+      "medium": "Acrylic & mixed media on canvas",
+      "size": "20\" × 20\"",
+      "price": 825,
+      "status": "available"
+    },
+    {
+      "title": "Gabagool",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179354/site-images/paint-gabagool.jpg",
+      "medium": "Acrylic on canvas",
+      "size": "20\" × 20\"",
+      "price": 775,
+      "status": "available"
+    },
+    {
+      "title": "Pacifico",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179359/site-images/paint-pacifico.jpg",
+      "medium": "Oil pastel on canvas",
+      "size": "11\" × 14\"",
+      "price": 480,
+      "status": "available"
+    },
+    {
+      "title": "Guinness",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179355/site-images/paint-guinness.jpg",
+      "medium": "Acrylic on canvas",
+      "size": "10\" × 12\"",
+      "price": 420,
+      "status": "available"
+    },
+    {
+      "title": "Road Rage",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179366/site-images/paint-road-rage.jpg",
+      "medium": "Mixed media on paper",
+      "size": "14\" × 20\"",
+      "price": 550,
+      "status": "available"
+    },
+    {
+      "title": "Red Press",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179365/site-images/paint-red-press.jpg",
+      "medium": "Transfer & acrylic on canvas",
+      "size": "18\" × 24\"",
+      "price": 700,
+      "status": "available"
+    }
+  ]
+}

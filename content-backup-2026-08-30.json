@@ -1,0 +1,1153 @@
+{
+  "note": "Backup of js/data.js videos + archiveItems, taken before clearing both pages on 2026-08-30. Media itself is untouched in Cloudinary; these are just the entries. Restore by pasting arrays back into js/data.js.",
+  "videos": [
+    {
+      "title": "Cold Smoke",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779179898/site-videos/4b3dc8225abe426ebd450a0f8c2773b7.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237457/video-thumbs/4b3dc8225abe426ebd450a0f8c2773b7.mov.png",
+      "duration": "0:39",
+      "year": "2025"
+    },
+    {
+      "title": "March Turns",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779180209/site-videos/bf330fc9f9e643ec97ec4f284291fe83.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237476/video-thumbs/bf330fc9f9e643ec97ec4f284291fe83.mov.png",
+      "duration": "0:34",
+      "year": "2025"
+    },
+    {
+      "title": "Spring Lines",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779180452/site-videos/f76474a54fc8458c94f410024bd83377.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237497/video-thumbs/f76474a54fc8458c94f410024bd83377.mov.png",
+      "duration": "1:02",
+      "year": "2025"
+    },
+    {
+      "title": "Slush Hour",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779180221/site-videos/c72e7a5ab01d45fbb31791d2c6b122f5.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237479/video-thumbs/c72e7a5ab01d45fbb31791d2c6b122f5.mov.png",
+      "duration": "0:22",
+      "year": "2025"
+    },
+    {
+      "title": "Quick Laps",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779180301/site-videos/d4e0b2ae6cff4f4c97fe8326d99d78c4.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237492/video-thumbs/d4e0b2ae6cff4f4c97fe8326d99d78c4.mov.png",
+      "duration": "0:19",
+      "year": "2025"
+    },
+    {
+      "title": "Telluride",
+      "type": "local",
+      "src": "videos/Telluride trip  (3).mp4",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237473/video-thumbs/Telluride_trip___3_.mp4.png",
+      "duration": "4:49",
+      "year": "2025"
+    },
+    {
+      "title": "Last Turns",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779180368/site-videos/f0f4156b980c491f9e1f6c96046b86e8.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237496/video-thumbs/f0f4156b980c491f9e1f6c96046b86e8.mov.png",
+      "duration": "1:00",
+      "year": "2025"
+    },
+    {
+      "title": "Spring Clip",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779180270/site-videos/c955ba546dad46bda1e9d6044a1684cf.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237480/video-thumbs/c955ba546dad46bda1e9d6044a1684cf.mov.png",
+      "duration": "0:21",
+      "year": "2025"
+    },
+    {
+      "title": "Closing Day",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779179978/site-videos/5c49fa6712564d06b38f1c6cc3ec6e32.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237463/video-thumbs/5c49fa6712564d06b38f1c6cc3ec6e32.mov.png",
+      "duration": "0:33",
+      "year": "2025"
+    },
+    {
+      "title": "First Swell",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779179591/site-videos/13999748dc6f4d8091fbbc21e50c42b3.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237442/video-thumbs/13999748dc6f4d8091fbbc21e50c42b3.mov.png",
+      "duration": "0:19",
+      "year": "2025"
+    },
+    {
+      "title": "Seaside Bar Crawl",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779233672/site-videos/seaside_bar_crawl.mp4",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237499/video-thumbs/seaside_bar_crawl.mov.png",
+      "duration": "1:48",
+      "year": "2025"
+    },
+    {
+      "title": "Glass Off",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779179989/site-videos/687be7708dab484e9589beffaab5b0f5.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237463/video-thumbs/687be7708dab484e9589beffaab5b0f5.mov.png",
+      "duration": "0:24",
+      "year": "2025"
+    },
+    {
+      "title": "Morning Set",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779180115/site-videos/95e74fe63f094b51afa8499f576a1e5f.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237471/video-thumbs/95e74fe63f094b51afa8499f576a1e5f.mov.png",
+      "duration": "0:41",
+      "year": "2025"
+    },
+    {
+      "title": "June Edit",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779179585/site-videos/0aa444ea8db547d58fdd9bd2034e35dc.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237441/video-thumbs/0aa444ea8db547d58fdd9bd2034e35dc.mov.png",
+      "duration": "0:52",
+      "year": "2025"
+    },
+    {
+      "title": "Street Clip",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779180458/site-videos/v15044gf0000d0qcf8fog65gsscg1nbg.mp4",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237500/video-thumbs/v15044gf0000d0qcf8fog65gsscg1nbg.mp4.png",
+      "duration": "0:20",
+      "year": "2025"
+    },
+    {
+      "title": "Summer Roll",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779180455/site-videos/v15044gf0000cvhp557og65nbqqgee00.mp4",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237499/video-thumbs/v15044gf0000cvhp557og65nbqqgee00.mp4.png",
+      "duration": "0:34",
+      "year": "2025"
+    },
+    {
+      "title": "July Swell",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779180021/site-videos/72fae7681bbb454cb4e005f789df3a46.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237466/video-thumbs/72fae7681bbb454cb4e005f789df3a46.mov.png",
+      "duration": "0:27",
+      "year": "2025"
+    },
+    {
+      "title": "Backside",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779179933/site-videos/5812d75907fc42f3a4a5c4e58a36c1bd.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237461/video-thumbs/5812d75907fc42f3a4a5c4e58a36c1bd.mov.png",
+      "duration": "0:22",
+      "year": "2025"
+    },
+    {
+      "title": "Ledge Life",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779180461/site-videos/v15044gf0000d1qrfgnog65gaqvn2tp0.mp4",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237500/video-thumbs/v15044gf0000d1qrfgnog65gaqvn2tp0.mp4.png",
+      "duration": "0:24",
+      "year": "2025"
+    },
+    {
+      "title": "Midsummer",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779233003/site-videos/4c83cbd563f9427e8402b931e8665c75.mp4",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237459/video-thumbs/4c83cbd563f9427e8402b931e8665c75.mov.png",
+      "duration": "1:23",
+      "year": "2025"
+    },
+    {
+      "title": "August Clip I",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779179788/site-videos/33c2f8f5538b467b8f842f01216ac3ce.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237453/video-thumbs/33c2f8f5538b467b8f842f01216ac3ce.mov.png",
+      "duration": "0:20",
+      "year": "2025"
+    },
+    {
+      "title": "August Clip II",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779180005/site-videos/6bccc2b45da848c090ba0be605ad7f9a.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237465/video-thumbs/6bccc2b45da848c090ba0be605ad7f9a.mov.png",
+      "duration": "0:20",
+      "year": "2025"
+    },
+    {
+      "title": "Concrete",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779180463/site-videos/v15044gf0000d28lsfvog65ptco00elg.mp4",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237501/video-thumbs/v15044gf0000d28lsfvog65ptco00elg.mp4.png",
+      "duration": "0:21",
+      "year": "2025"
+    },
+    {
+      "title": "Shore Break",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779180315/site-videos/dc0d51585c8d4e06b09d429bb65220f6.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237493/video-thumbs/dc0d51585c8d4e06b09d429bb65220f6.mov.png",
+      "duration": "0:22",
+      "year": "2025"
+    },
+    {
+      "title": "Late Summer",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779180414/site-videos/f5c939e336d6432cb25cb0856de1f69f.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237497/video-thumbs/f5c939e336d6432cb25cb0856de1f69f.mov.png",
+      "duration": "1:00",
+      "year": "2025"
+    },
+    {
+      "title": "Transition",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779233284/site-videos/bfdf56661b414050876c118773962fa7.mp4",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237477/video-thumbs/bfdf56661b414050876c118773962fa7.mov.png",
+      "duration": "3:26",
+      "year": "2025"
+    },
+    {
+      "title": "September Clip",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779179630/site-videos/23bfd4dc6ef54af4acaf80e978f16ecb.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237447/video-thumbs/23bfd4dc6ef54af4acaf80e978f16ecb.mov.png",
+      "duration": "0:20",
+      "year": "2025"
+    },
+    {
+      "title": "Tidal",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779233586/site-videos/f9af1d560b404f6790d73a0cd5b5838b.mp4",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237498/video-thumbs/f9af1d560b404f6790d73a0cd5b5838b.mov.png",
+      "duration": "2:14",
+      "year": "2025"
+    },
+    {
+      "title": "Cut",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779179904/site-videos/4b7359c23e8c45a181348774dedb67d4.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237458/video-thumbs/4b7359c23e8c45a181348774dedb67d4.mov.png",
+      "duration": "0:15",
+      "year": "2025"
+    },
+    {
+      "title": "Salt Water",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779180096/site-videos/94e7fc931d54429eb00dbda22b1d68be.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237470/video-thumbs/94e7fc931d54429eb00dbda22b1d68be.mov.png",
+      "duration": "0:20",
+      "year": "2025"
+    },
+    {
+      "title": "Fall Session",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779179777/site-videos/2f39f677fc404959881ab1ee2d91687b.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237452/video-thumbs/2f39f677fc404959881ab1ee2d91687b.mov.png",
+      "duration": "0:43",
+      "year": "2025"
+    },
+    {
+      "title": "October Edit",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779180201/site-videos/b98bcb22d3464200a821d092dd3ba34f.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237475/video-thumbs/b98bcb22d3464200a821d092dd3ba34f.mov.png",
+      "duration": "0:34",
+      "year": "2025"
+    },
+    {
+      "title": "Pre-Season",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779179601/site-videos/149df7da2e7d49fe8ba4b4d76a83e243.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237443/video-thumbs/149df7da2e7d49fe8ba4b4d76a83e243.mov.png",
+      "duration": "0:35",
+      "year": "2025"
+    },
+    {
+      "title": "First Snow",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779179706/site-videos/28e11c8a3904420e9180d97c270514bd.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237450/video-thumbs/28e11c8a3904420e9180d97c270514bd.mov.png",
+      "duration": "0:45",
+      "year": "2025"
+    },
+    {
+      "title": "Early White",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779180255/site-videos/c78ac0f3ce474da6b196849c61f79174.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237479/video-thumbs/c78ac0f3ce474da6b196849c61f79174.mov.png",
+      "duration": "1:00",
+      "year": "2025"
+    },
+    {
+      "title": "Storm Season",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779233215/site-videos/ae842bd8d7c6467986f67c4d1f1fb806.mp4",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237474/video-thumbs/ae842bd8d7c6467986f67c4d1f1fb806.mov.png",
+      "duration": "1:05",
+      "year": "2025"
+    },
+    {
+      "title": "Autumn Lines",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779180195/site-videos/b3e326ac4cc04730b22745e5c884cce1.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237475/video-thumbs/b3e326ac4cc04730b22745e5c884cce1.mov.png",
+      "duration": "0:32",
+      "year": "2025"
+    },
+    {
+      "title": "Static",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779179559/site-videos/09c57715c53c45aab4ec28ec67491c7f.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237440/video-thumbs/09c57715c53c45aab4ec28ec67491c7f.mov.png",
+      "duration": "0:21",
+      "year": "2025"
+    },
+    {
+      "title": "Grey Day",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779180289/site-videos/d3cf48d4700e4814b6ea8f438f3e34fc.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237491/video-thumbs/d3cf48d4700e4814b6ea8f438f3e34fc.mov.png",
+      "duration": "0:59",
+      "year": "2025"
+    },
+    {
+      "title": "Hallows",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779180085/site-videos/8b78b17b86524ffeb0cb74a04d3633a8.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237469/video-thumbs/8b78b17b86524ffeb0cb74a04d3633a8.mov.png",
+      "duration": "0:20",
+      "year": "2025"
+    },
+    {
+      "title": "October Clip",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779179913/site-videos/4e0f847960694c7daa1e9a8f230ea8f6.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237460/video-thumbs/4e0f847960694c7daa1e9a8f230ea8f6.mov.png",
+      "duration": "0:27",
+      "year": "2025"
+    },
+    {
+      "title": "Opening Day",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779179621/site-videos/1e1a44aaf1ee4936b6f15ee9a8caa2e2.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237446/video-thumbs/1e1a44aaf1ee4936b6f15ee9a8caa2e2.mov.png",
+      "duration": "0:21",
+      "year": "2025"
+    },
+    {
+      "title": "First Chair",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779179611/site-videos/1d62ccdbd29a485781372c9de50a61bd.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237445/video-thumbs/1d62ccdbd29a485781372c9de50a61bd.mov.png",
+      "duration": "0:19",
+      "year": "2025"
+    },
+    {
+      "title": "Early Season",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779179724/site-videos/296dcd5e89dc4854b0244017544c76cf.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237450/video-thumbs/296dcd5e89dc4854b0244017544c76cf.mov.png",
+      "duration": "0:33",
+      "year": "2025"
+    },
+    {
+      "title": "Blower Day",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779233305/site-videos/c3133360d79a4ff383ecc571e4b2e08f.mp4",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237478/video-thumbs/c3133360d79a4ff383ecc571e4b2e08f.mov.png",
+      "duration": "1:00",
+      "year": "2025"
+    },
+    {
+      "title": "Storm Chaser",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779179750/site-videos/2ab38c18c16a4a00b05eab75e84e66f7.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237451/video-thumbs/2ab38c18c16a4a00b05eab75e84e66f7.mov.png",
+      "duration": "0:37",
+      "year": "2025"
+    },
+    {
+      "title": "November Pow",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779179544/site-videos/0817265e207349e1b9fb32d27ff8574d.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237438/video-thumbs/0817265e207349e1b9fb32d27ff8574d.mov.png",
+      "duration": "0:32",
+      "year": "2025"
+    },
+    {
+      "title": "Deep Week",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779180338/site-videos/e8b1e3ba71b04883a4ab09ced1b03586.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237493/video-thumbs/e8b1e3ba71b04883a4ab09ced1b03586.mov.png",
+      "duration": "1:01",
+      "year": "2025"
+    },
+    {
+      "title": "Slashes",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779179873/site-videos/46556a93f0624e0286375179c210d72b.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237457/video-thumbs/46556a93f0624e0286375179c210d72b.mov.png",
+      "duration": "0:15",
+      "year": "2025"
+    },
+    {
+      "title": "December Edit",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779179687/site-videos/25984be1086341d1b438700245bc8a5e.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237449/video-thumbs/25984be1086341d1b438700245bc8a5e.mov.png",
+      "duration": "0:54",
+      "year": "2025"
+    },
+    {
+      "title": "December Film",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779233446/site-videos/export_1764920101375.mp4",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237494/video-thumbs/export_1764920101375.mov.png",
+      "duration": "2:12",
+      "year": "2025"
+    },
+    {
+      "title": "Cold Smoke II",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779179921/site-videos/550da6cbb5a447219d474d045396dc5e.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237460/video-thumbs/550da6cbb5a447219d474d045396dc5e.mov.png",
+      "duration": "0:20",
+      "year": "2025"
+    },
+    {
+      "title": "Knee Deep",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779180029/site-videos/74e03581174c4678822db09a3397325d.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237467/video-thumbs/74e03581174c4678822db09a3397325d.mov.png",
+      "duration": "0:28",
+      "year": "2025"
+    },
+    {
+      "title": "Year End",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779179862/site-videos/454e2a2348a94db4b0b19a525babc449.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237456/video-thumbs/454e2a2348a94db4b0b19a525babc449.mov.png",
+      "duration": "0:31",
+      "year": "2025"
+    },
+    {
+      "title": "January Pow",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779233107/site-videos/864a588b20194aebaada8b8669b9543d.mp4",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237468/video-thumbs/864a588b20194aebaada8b8669b9543d.mov.png",
+      "duration": "1:00",
+      "year": "2026"
+    },
+    {
+      "title": "February Edit",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779180130/site-videos/9819886099b14966a52d0b60043db5b0.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237471/video-thumbs/9819886099b14966a52d0b60043db5b0.mov.png",
+      "duration": "0:33",
+      "year": "2026"
+    },
+    {
+      "title": "Quick Pow",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779179811/site-videos/34d8a4fd25d24484b494cf0a35500c39.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237454/video-thumbs/34d8a4fd25d24484b494cf0a35500c39.mov.png",
+      "duration": "0:18",
+      "year": "2026"
+    },
+    {
+      "title": "March Film",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779233031/site-videos/6B8B485A-428A-47A9-9B4C-9C01C9B5B01B.mp4",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237464/video-thumbs/6B8B485A-428A-47A9-9B4C-9C01C9B5B01B.mov.png",
+      "duration": "2:12",
+      "year": "2026"
+    },
+    {
+      "title": "Spring Turns",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779179957/site-videos/5a82b83452594f779c544fa179e2e60a.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237462/video-thumbs/5a82b83452594f779c544fa179e2e60a.mov.png",
+      "duration": "1:00",
+      "year": "2026"
+    },
+    {
+      "title": "April Clip",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779179798/site-videos/343e117db2c84b5baf35ca679089a1b1.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237453/video-thumbs/343e117db2c84b5baf35ca679089a1b1.mov.png",
+      "duration": "0:20",
+      "year": "2026"
+    },
+    {
+      "title": "Corn Season",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779179548/site-videos/08c46fbda7f942cf94a37c0bd34c1382.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237439/video-thumbs/08c46fbda7f942cf94a37c0bd34c1382.mov.png",
+      "duration": "0:21",
+      "year": "2026"
+    },
+    {
+      "title": "Spring Shred",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779179832/site-videos/3b39837da3e24bdfa9721044ef027630.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237455/video-thumbs/3b39837da3e24bdfa9721044ef027630.mov.png",
+      "duration": "1:00",
+      "year": "2026"
+    },
+    {
+      "title": "Spring Clip II",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779180381/site-videos/f1b64a67a8b24792b51acffd0a588e20.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237496/video-thumbs/f1b64a67a8b24792b51acffd0a588e20.mov.png",
+      "duration": "0:25",
+      "year": "2026"
+    },
+    {
+      "title": "Season Closer",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779233510/site-videos/export_1776332982069.mp4",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237495/video-thumbs/export_1776332982069.mov.png",
+      "duration": "1:00",
+      "year": "2026"
+    },
+    {
+      "title": "Last Laps",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779180154/site-videos/9a94993e6200477cb0fa2ce58c3f753d.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237472/video-thumbs/9a94993e6200477cb0fa2ce58c3f753d.mov.png",
+      "duration": "0:45",
+      "year": "2026"
+    },
+    {
+      "title": "Spring Film",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779233362/site-videos/copy_39C02920-581D-4807-9738-102F6E5387B0.mp4",
+      "thumbnail": "videos/thumbs/copy_39C02920-581D-4807-9738-102F6E5387B0.mov.png",
+      "duration": "4:50",
+      "year": "2026"
+    },
+    {
+      "title": "May Edit",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779179849/site-videos/412a12e193b743bd8d42f82abb5e8bd3.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237455/video-thumbs/412a12e193b743bd8d42f82abb5e8bd3.mov.png",
+      "duration": "0:44",
+      "year": "2026"
+    },
+    {
+      "title": "May Pow",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779180060/site-videos/7636a992b85a46f498de0135a89ebd83.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237467/video-thumbs/7636a992b85a46f498de0135a89ebd83.mov.png",
+      "duration": "1:00",
+      "year": "2026"
+    },
+    {
+      "title": "Late Season Film",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779233079/site-videos/6edb3dac5adb48ab8874aed8bd7a9608.mp4",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237465/video-thumbs/6edb3dac5adb48ab8874aed8bd7a9608.mov.png",
+      "duration": "3:43",
+      "year": "2026"
+    },
+    {
+      "title": "May Clip",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779180177/site-videos/9d4b7335a689410bbae850b7c104525e.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237473/video-thumbs/9d4b7335a689410bbae850b7c104525e.mov.png",
+      "duration": "0:24",
+      "year": "2026"
+    },
+    {
+      "title": "Season Wrap",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779180077/site-videos/896a8da1fcd24bc6a016fcdb810532aa.mov",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237468/video-thumbs/896a8da1fcd24bc6a016fcdb810532aa.mov.png",
+      "duration": "0:27",
+      "year": "2026"
+    },
+    {
+      "title": "Final Cut",
+      "type": "local",
+      "src": "https://res.cloudinary.com/dljs01zmp/video/upload/v1779232941/site-videos/1534fb658db4406d85d6a62a03f73f7c.mp4",
+      "thumbnail": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779237444/video-thumbs/1534fb658db4406d85d6a62a03f73f7c.mov.png",
+      "duration": "1:07",
+      "year": "2026"
+    }
+  ],
+  "archiveItems": [
+    {
+      "title": "Rolling Dice",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179395/site-images/rolling-dice.jpg",
+      "type": "Collage"
+    },
+    {
+      "title": "Red Goggles",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179394/site-images/red-goggles.png",
+      "type": "Ink Drawing"
+    },
+    {
+      "title": "Possessed by Light",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179387/site-images/possessed-by-light.jpg",
+      "type": "Marker"
+    },
+    {
+      "title": "Mandala Blue",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179258/site-images/mandala-blue.jpg",
+      "type": "Ink"
+    },
+    {
+      "title": "Marlboro Birds",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179259/site-images/marlboro-birds.png",
+      "type": "Mixed Media"
+    },
+    {
+      "title": "Stop Sign",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179407/site-images/stop-sign.jpg",
+      "type": "Marker"
+    },
+    {
+      "title": "Goggles Variant",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179252/site-images/goggles-variant.png",
+      "type": "Digital"
+    },
+    {
+      "title": "Skier Flip",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179406/site-images/skier-flip.jpg",
+      "type": "Mixed Media"
+    },
+    {
+      "title": "HBD",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179253/site-images/hbd-logo.png",
+      "type": "Digital"
+    },
+    {
+      "title": "Gallery Wall",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179251/site-images/gallery-wall.jpg",
+      "type": "Exhibition"
+    },
+    {
+      "title": "Jabroni",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179257/site-images/jabroni.jpg",
+      "type": "Sketchbook"
+    },
+    {
+      "title": "No Working Hours",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179349/site-images/no-working.jpg",
+      "type": "Pen & Ink"
+    },
+    {
+      "title": "Portrait Face",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179435/site-images/portrait-face.png",
+      "type": "Oil Pastel"
+    },
+    {
+      "title": "Chaos Creature",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179430/site-images/chaos-creature.png",
+      "type": "Pen & Ink"
+    },
+    {
+      "title": "Clay Face",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179216/site-images/clay-face.png",
+      "type": "Sculpture"
+    },
+    {
+      "title": "Chess Knight",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179215/site-images/chess-knight.png",
+      "type": "Sketch"
+    },
+    {
+      "title": "Chess Rook",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179216/site-images/chess-rook.png",
+      "type": "Sketch"
+    },
+    {
+      "title": "Sketchbook I",
+      "image": "images/sketch-2825.jpg",
+      "type": "Sketch"
+    },
+    {
+      "title": "Sketchbook II",
+      "image": "images/sketch-2856.jpg",
+      "type": "Sketch"
+    },
+    {
+      "title": "Sketchbook III",
+      "image": "images/sketch-2859.jpg",
+      "type": "Sketch"
+    },
+    {
+      "title": "Sketchbook IV",
+      "image": "images/sketch-2860.jpg",
+      "type": "Sketch"
+    },
+    {
+      "title": "Sketchbook V",
+      "image": "images/sketch-2861.jpg",
+      "type": "Sketch"
+    },
+    {
+      "title": "Sketchbook VI",
+      "image": "images/sketch-2862.jpg",
+      "type": "Sketch"
+    },
+    {
+      "title": "Sketchbook VII",
+      "image": "images/sketch-2864.jpg",
+      "type": "Sketch"
+    },
+    {
+      "title": "Sketchbook VIII",
+      "image": "images/sketch-2865.jpg",
+      "type": "Sketch"
+    },
+    {
+      "title": "Sketchbook IX",
+      "image": "images/sketch-2870.jpg",
+      "type": "Sketch"
+    },
+    {
+      "title": "Sketchbook X",
+      "image": "images/sketch-2871.jpg",
+      "type": "Sketch"
+    },
+    {
+      "title": "Sketchbook XI",
+      "image": "images/sketch-2872.jpg",
+      "type": "Sketch"
+    },
+    {
+      "title": "Sketchbook XII",
+      "image": "images/sketch-2873.jpg",
+      "type": "Sketch"
+    },
+    {
+      "title": "Sketchbook XIII",
+      "image": "images/sketch-2874.jpg",
+      "type": "Sketch"
+    },
+    {
+      "title": "Sketchbook XIV",
+      "image": "images/sketch-2876.jpg",
+      "type": "Sketch"
+    },
+    {
+      "title": "Sketchbook XV",
+      "image": "images/sketch-2877.jpg",
+      "type": "Sketch"
+    },
+    {
+      "title": "Sketchbook XVI",
+      "image": "images/sketch-2878.jpg",
+      "type": "Sketch"
+    },
+    {
+      "title": "Sketchbook XVII",
+      "image": "images/sketch-2879.jpg",
+      "type": "Sketch"
+    },
+    {
+      "title": "Sketchbook XVIII",
+      "image": "images/sketch-2880.jpg",
+      "type": "Sketch"
+    },
+    {
+      "title": "Sketchbook XIX",
+      "image": "images/sketch-2882.jpg",
+      "type": "Sketch"
+    },
+    {
+      "title": "Ink Study I",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179278/site-images/more-3999.jpg",
+      "type": "Ink"
+    },
+    {
+      "title": "Ink Study II",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179279/site-images/more-4002.jpg",
+      "type": "Ink"
+    },
+    {
+      "title": "Ink Study III",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179280/site-images/more-4006.jpg",
+      "type": "Ink"
+    },
+    {
+      "title": "Ink Study IV",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179280/site-images/more-4007.jpg",
+      "type": "Ink"
+    },
+    {
+      "title": "Ink Study V",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179282/site-images/more-4009.jpg",
+      "type": "Ink"
+    },
+    {
+      "title": "Mandala I",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179283/site-images/more-4022.jpg",
+      "type": "Ink"
+    },
+    {
+      "title": "Mandala II",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179284/site-images/more-4023.jpg",
+      "type": "Ink"
+    },
+    {
+      "title": "Mandala III",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179285/site-images/more-4025.jpg",
+      "type": "Ink"
+    },
+    {
+      "title": "Mandala IV",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179286/site-images/more-4026.jpg",
+      "type": "Ink"
+    },
+    {
+      "title": "Mandala V",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179287/site-images/more-4027.jpg",
+      "type": "Ink"
+    },
+    {
+      "title": "Pen Work I",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179288/site-images/more-4035.jpg",
+      "type": "Pen & Ink"
+    },
+    {
+      "title": "Pen Work II",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179289/site-images/more-4037.jpg",
+      "type": "Pen & Ink"
+    },
+    {
+      "title": "Pen Work III",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179291/site-images/more-4044.jpg",
+      "type": "Pen & Ink"
+    },
+    {
+      "title": "Pen Work IV",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179292/site-images/more-4057.jpg",
+      "type": "Pen & Ink"
+    },
+    {
+      "title": "Pen Work V",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179292/site-images/more-4059.jpg",
+      "type": "Pen & Ink"
+    },
+    {
+      "title": "Pen Work VI",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179293/site-images/more-4062.jpg",
+      "type": "Pen & Ink"
+    },
+    {
+      "title": "Pen Work VII",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179294/site-images/more-4063.jpg",
+      "type": "Pen & Ink"
+    },
+    {
+      "title": "Pen Work VIII",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179295/site-images/more-4064.jpg",
+      "type": "Pen & Ink"
+    },
+    {
+      "title": "Pen Work IX",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179297/site-images/more-4065.jpg",
+      "type": "Pen & Ink"
+    },
+    {
+      "title": "Pen Work X",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179299/site-images/more-4066.jpg",
+      "type": "Pen & Ink"
+    },
+    {
+      "title": "Large Format I",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179301/site-images/more-4084.jpg",
+      "type": "Painting"
+    },
+    {
+      "title": "Large Format II",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179303/site-images/more-4085.jpg",
+      "type": "Painting"
+    },
+    {
+      "title": "Color Study I",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179309/site-images/more-6094.jpg",
+      "type": "Painting"
+    },
+    {
+      "title": "Color Study II",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179310/site-images/more-6100.jpg",
+      "type": "Painting"
+    },
+    {
+      "title": "Color Study III",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179318/site-images/more-6127.jpg",
+      "type": "Painting"
+    },
+    {
+      "title": "Studio Work I",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179321/site-images/more-6179.jpg",
+      "type": "Process"
+    },
+    {
+      "title": "Studio Work II",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179323/site-images/more-6192.jpg",
+      "type": "Process"
+    },
+    {
+      "title": "Studio Work III",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179325/site-images/more-6193.jpg",
+      "type": "Process"
+    },
+    {
+      "title": "Mixed Media I",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179329/site-images/more-6246.jpg",
+      "type": "Mixed Media"
+    },
+    {
+      "title": "Mixed Media II",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179330/site-images/more-6248.jpg",
+      "type": "Mixed Media"
+    },
+    {
+      "title": "Mixed Media III",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179331/site-images/more-6250.jpg",
+      "type": "Mixed Media"
+    },
+    {
+      "title": "Series I",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179332/site-images/more-6267.jpg",
+      "type": "Painting"
+    },
+    {
+      "title": "Series II",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179333/site-images/more-6269.jpg",
+      "type": "Painting"
+    },
+    {
+      "title": "Series III",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179334/site-images/more-6270.jpg",
+      "type": "Painting"
+    },
+    {
+      "title": "Series IV",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179335/site-images/more-6272.jpg",
+      "type": "Painting"
+    },
+    {
+      "title": "Series V",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179336/site-images/more-6285.jpg",
+      "type": "Painting"
+    },
+    {
+      "title": "Series VI",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179337/site-images/more-6289.jpg",
+      "type": "Painting"
+    },
+    {
+      "title": "Portrait I",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179432/site-images/portrait-6501.png",
+      "type": "Oil Pastel"
+    },
+    {
+      "title": "Portrait II",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179434/site-images/portrait-6502.png",
+      "type": "Oil Pastel"
+    },
+    {
+      "title": "Portrait III",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179382/site-images/portrait-6503.png",
+      "type": "Oil Pastel"
+    },
+    {
+      "title": "Digital I",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179219/site-images/digital-2966.png",
+      "type": "Digital"
+    },
+    {
+      "title": "Digital II",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179221/site-images/digital-2967.png",
+      "type": "Digital"
+    },
+    {
+      "title": "Digital III",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179224/site-images/digital-2968.png",
+      "type": "Digital"
+    },
+    {
+      "title": "Digital IV",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179227/site-images/digital-2970.png",
+      "type": "Digital"
+    },
+    {
+      "title": "Digital V",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179230/site-images/digital-2971.png",
+      "type": "Digital"
+    },
+    {
+      "title": "Ink & Fire",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179203/site-images/art-e8fe.png",
+      "type": "Experiment"
+    },
+    {
+      "title": "Freeform",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179429/site-images/art-d6f3.png",
+      "type": "Experiment"
+    },
+    {
+      "title": "Portrait Edit",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179193/site-images/art-a9df.png",
+      "type": "Digital Edit"
+    },
+    {
+      "title": "Dark Study",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179195/site-images/art-ad72.png",
+      "type": "Mixed Media"
+    },
+    {
+      "title": "Layer Work",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179191/site-images/art-9892.png",
+      "type": "Process"
+    },
+    {
+      "title": "Early Work I",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179246/site-images/fullrender-01.jpg",
+      "type": "Marker"
+    },
+    {
+      "title": "Early Work II",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179246/site-images/fullrender-02.jpg",
+      "type": "Marker"
+    },
+    {
+      "title": "Early Work III",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179248/site-images/fullrender-05.jpg",
+      "type": "Marker"
+    },
+    {
+      "title": "Early Work IV",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179248/site-images/fullrender-07.jpg",
+      "type": "Marker"
+    },
+    {
+      "title": "Early Work V",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179249/site-images/fullrender-08.jpg",
+      "type": "Marker"
+    },
+    {
+      "title": "Early Work VI",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179249/site-images/fullrender-09.jpg",
+      "type": "Marker"
+    },
+    {
+      "title": "Early Work VII",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179250/site-images/fullrender-10.jpg",
+      "type": "Marker"
+    },
+    {
+      "title": "Marlboro Boxing",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179239/site-images/flip-marlboro-boxing.jpg",
+      "type": "Acrylic"
+    },
+    {
+      "title": "Life Is A...",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179239/site-images/flip-life-is-a.jpg",
+      "type": "Mixed Media"
+    },
+    {
+      "title": "Marlboro NBD",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179240/site-images/flip-marlboro-nbd.jpg",
+      "type": "Acrylic"
+    },
+    {
+      "title": "Birds Aren't Real",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179231/site-images/flip-birds-arent-real.jpg",
+      "type": "Acrylic"
+    },
+    {
+      "title": "Red Aviator",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179242/site-images/flip-red-aviator.jpg",
+      "type": "Pen & Ink"
+    },
+    {
+      "title": "Color Portrait Studies",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179235/site-images/flip-color-portraits.jpg",
+      "type": "Pen & Marker"
+    },
+    {
+      "title": "Glock Revolution",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179238/site-images/flip-glock-revolution.jpg",
+      "type": "Mixed Media"
+    },
+    {
+      "title": "NBD Landscape",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179242/site-images/flip-nbd-landscape.jpg",
+      "type": "Pen & Acrylic"
+    },
+    {
+      "title": "Say Perhaps to Drugs",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179243/site-images/flip-say-perhaps.jpg",
+      "type": "Acrylic"
+    },
+    {
+      "title": "Skateboarding is a Crime",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179244/site-images/flip-skate-crime.jpg",
+      "type": "Mixed Media"
+    },
+    {
+      "title": "Blue Mandala",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179233/site-images/flip-blue-mandala.jpg",
+      "type": "Pen & Ink"
+    },
+    {
+      "title": "Fancy / Beware",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179237/site-images/flip-fancy-beware.jpg",
+      "type": "Acrylic"
+    },
+    {
+      "title": "NBD Collective",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179241/site-images/flip-nbd-collective.jpg",
+      "type": "Mixed Media"
+    },
+    {
+      "title": "Harriet & Bob",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179238/site-images/flip-harriet-bob.jpg",
+      "type": "Acrylic"
+    },
+    {
+      "title": "Colorful Portraits",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179236/site-images/flip-colorful-portraits.jpg",
+      "type": "Acrylic"
+    },
+    {
+      "title": "Fire Surfer",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179244/site-images/flip-surfer.jpg",
+      "type": "Marker"
+    },
+    {
+      "title": "Chill, It's Only Chaos",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179234/site-images/flip-chill-chaos.jpg",
+      "type": "Acrylic"
+    },
+    {
+      "title": "Gladiator",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179237/site-images/flip-gladiator.jpg",
+      "type": "Mixed Media"
+    },
+    {
+      "title": "Birds & Botanicals",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179232/site-images/flip-birds-black.jpg",
+      "type": "Oil Pastel"
+    },
+    {
+      "title": "Teal Faces",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179245/site-images/flip-teal-faces.jpg",
+      "type": "Oil Pastel"
+    },
+    {
+      "title": "Red Figure",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/v1779179243/site-images/flip-red-figure.jpg",
+      "type": "Acrylic"
+    }
+  ]
+}

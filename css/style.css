@@ -731,6 +731,58 @@ h4 {
   .video-grid { grid-template-columns: 1fr; gap: 1.2rem; }
 }
 
+/* --- Vertical short-form grid (TikTok / Reels / Shorts) --- */
+/* Narrower columns than .video-grid so 9:16 cards don't tower over the page. */
+.shorts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 1.2rem;
+}
+/* Preview row on the video page: always a single tidy row of 5 */
+.shorts-grid--preview {
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+}
+@media (max-width: 1024px) {
+  .shorts-grid--preview { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 600px) {
+  .shorts-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+  .shorts-grid--preview { grid-template-columns: repeat(2, 1fr); }
+}
+
+.video-card--vertical .video-card__thumbnail {
+  aspect-ratio: 9 / 16;
+}
+.video-card--vertical .video-card__body {
+  padding: 1rem;
+}
+.video-card--vertical .video-card__title {
+  font-size: 1.15rem;
+}
+
+/* Untitled tiles: thumbnail only, no body underneath */
+.video-card--tile {
+  background: transparent;
+  border: none;
+}
+.video-card--tile .video-card__thumbnail {
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+}
+
+/* Portrait lightbox for vertical clips — keep the player tall, not letterboxed */
+.video-lightbox--vertical .video-lightbox__inner {
+  max-width: min(440px, 92vw);
+}
+.video-lightbox--vertical .video-lightbox__player {
+  aspect-ratio: 9 / 16;
+  max-height: 78vh;
+}
+.video-lightbox--vertical .video-lightbox__player video {
+  object-fit: contain;
+}
+
 /* --- Video filter bar --- */
 .video-filters {
   display: flex;
@@ -1164,7 +1216,7 @@ h4 {
 
 .feature-tile {
   position: relative;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   background: var(--color-bg-card);
   display: block;
@@ -1599,83 +1651,83 @@ h4 {
 /* ============================================
    Archive Page — White Background
    ============================================ */
-.page--archive {
+.page--light {
   background-color: #ffffff;
   color: #111111;
 }
 
-.page--archive .nav--scrolled {
+.page--light .nav--scrolled {
   background: rgba(255, 255, 255, 0.96);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
 }
 
-.page--archive .nav__logo,
-.page--archive .nav__link,
-.page--archive .nav__toggle span {
+.page--light .nav__logo,
+.page--light .nav__link,
+.page--light .nav__toggle span {
   color: #111111;
 }
 
-.page--archive .nav__logo span {
+.page--light .nav__logo span {
   color: var(--color-red);
 }
 
-.page--archive .nav__logo-sub {
+.page--light .nav__logo-sub {
   color: #777777;
 }
 
-.page--archive .page-header {
+.page--light .page-header {
   background: #ffffff;
   color: #111111;
 }
 
-.page--archive .page-header__desc {
+.page--light .page-header__desc {
   color: #555555;
 }
 
-.page--archive .section {
+.page--light .section {
   background: #ffffff;
 }
 
-.page--archive .archive-item {
+.page--light .archive-item {
   border-color: #e0e0e0;
 }
 
-.page--archive .archive-item:hover {
+.page--light .archive-item:hover {
   border-color: var(--color-red);
 }
 
-.page--archive .archive-item__title {
+.page--light .archive-item__title {
   color: #ffffff;
 }
 
-.page--archive .footer {
+.page--light .footer {
   background: #f2f2f2;
   border-top-color: #dddddd;
   color: #111111;
 }
 
-.page--archive .footer__bottom {
+.page--light .footer__bottom {
   border-top-color: #dddddd;
   color: #888888;
 }
 
-.page--archive .footer__brand,
-.page--archive .footer__col a,
-.page--archive .footer__col-title {
+.page--light .footer__brand,
+.page--light .footer__col a,
+.page--light .footer__col-title {
   color: #333333;
 }
 
-.page--archive .footer__col a:hover {
+.page--light .footer__col a:hover {
   color: var(--color-red);
 }
 
-.page--archive .label {
+.page--light .label {
   color: var(--color-red);
 }
 
-.page--archive h1,
-.page--archive h2,
-.page--archive h3 {
+.page--light h1,
+.page--light h2,
+.page--light h3 {
   color: #111111;
 }
 
@@ -2086,4 +2138,323 @@ h4 {
   font-size: 0.82rem;
   color: var(--color-muted);
   min-height: 1.2em;
+}
+
+/* ============================================
+   ART PAGE — gallery wall on white
+   ============================================ */
+
+/* Masonry columns so each painting keeps its own proportions.
+   Nothing here crops: art gets shown whole or not at all. */
+/* Grid rather than CSS columns so pieces read left-to-right in listed order.
+   align-items:start lets each canvas keep its own height — no cropping. */
+.art-wall {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: start;
+  gap: 3rem 2.5rem;
+}
+@media (max-width: 1024px) { .art-wall { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px)  { .art-wall { grid-template-columns: 1fr; } }
+
+.art-wall .art-card {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+.art-wall .art-card:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Natural aspect ratio — override the 4:5 crop used elsewhere */
+.art-wall .art-card__image {
+  aspect-ratio: auto;
+  background: #f4f4f4;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.10);
+  transition: box-shadow 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+}
+
+.art-wall .art-card__image img {
+  height: auto;
+  object-fit: contain;
+}
+
+.art-wall .art-card:hover .art-card__image {
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.20);
+  transform: translateY(-3px);
+}
+
+.art-wall .art-card:hover .art-card__image img {
+  transform: none;
+}
+
+/* Caption sits under the work, like a wall label */
+.art-wall .art-card__body {
+  padding: 1.1rem 0 0;
+}
+
+.page--art .art-card__title {
+  color: #111111;
+  font-size: 1.75rem;
+  margin-bottom: 0.3rem;
+}
+
+.page--art .art-card__details {
+  color: #666666;
+}
+
+.page--art .art-card__price {
+  color: #111111;
+  font-size: 1.5rem;
+  margin: 0.5rem 0 0.9rem;
+}
+
+.page--art .art-card--sold .art-card__price {
+  color: #999999;
+}
+
+.page--art .art-card--sold .art-card__image::after {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.page--art .btn {
+  border-color: #cccccc;
+  color: #111111;
+}
+
+.page--art .btn:hover {
+  border-color: var(--color-red);
+  color: var(--color-red);
+}
+
+.page--art .btn--accent {
+  background: var(--color-red);
+  border-color: var(--color-red);
+  color: #ffffff;
+}
+
+.page--art .btn--accent:hover {
+  background: #c81c1c;
+  border-color: #c81c1c;
+  color: #ffffff;
+}
+
+.page--art p {
+  color: #555555;
+}
+
+.page--art .art-card__price--ask {
+  font-family: var(--font-display-alt);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #666666;
+}
+
+/* Sold pieces: badge only — no scrim over the artwork */
+.page--art .art-card--sold .art-card__image::after {
+  display: none;
+}
+/* "Price on request" reads wrong struck through */
+.page--art .art-card--sold .art-card__price--ask {
+  text-decoration: none;
+  opacity: 1;
+}
+
+/* Buy flow — notices and inline errors on the art page */
+.art-notice {
+  padding: 1rem 1.4rem;
+  margin-bottom: 2.5rem;
+  border-radius: 3px;
+  font-size: 0.95rem;
+}
+.art-notice--ok   { background: #e8f5ec; color: #14532d; border: 1px solid #b7dfc5; }
+.art-notice--fail { background: #fdecec; color: #7f1d1d; border: 1px solid #f2c2c2; }
+
+.art-card__error {
+  margin-top: 0.7rem;
+  font-size: 0.85rem;
+  color: #b91c1c;
+}
+.page--art .art-buy { cursor: pointer; }
+.page--art .art-buy:disabled { opacity: 0.6; cursor: default; }
+
+/* About story — space the paragraphs so long-form copy is readable */
+#about-content p {
+  margin-bottom: 1.15rem;
+  max-width: 62ch;
+  color: var(--color-text-dim);
+}
+#about-content p:first-of-type {
+  color: var(--color-text);
+  font-size: 1.08rem;
+}
+#about-content p:last-of-type {
+  margin-bottom: 0;
+  color: var(--color-text);
+}
+
+/* About — subhead and closing cadence */
+.about__subhead {
+  font-family: var(--font-display-alt);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-red) !important;
+  margin-bottom: 1.6rem !important;
+}
+#about-content p:last-of-type {
+  line-height: 1.9;
+}
+
+/* ============================================
+   SKETCHBOOK — page-turning archive viewer
+   ============================================ */
+.sketchbook {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.sketchbook__book {
+  position: relative;
+  display: flex;
+  perspective: 2600px;
+  border-radius: 4px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.28);
+}
+
+.sketchbook__page {
+  width: 50%;
+  aspect-ratio: 3 / 4;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.6rem;
+  overflow: hidden;
+}
+.sketchbook__page--left  { border-radius: 4px 0 0 4px; }
+.sketchbook__page--right { border-radius: 0 4px 4px 0; }
+
+/* Drawings are never cropped — the page is the frame, the art sits inside it */
+.sketchbook__page img,
+.sketchbook__face img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  cursor: zoom-in;
+}
+
+.sketchbook__spine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  transform: translateX(-1px);
+  background: linear-gradient(to right, rgba(0,0,0,0.10), rgba(0,0,0,0.03));
+  pointer-events: none;
+}
+
+/* The turning leaf */
+.sketchbook__flip {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.7s var(--ease-in-out);
+  pointer-events: none;
+  display: none;
+}
+.sketchbook__flip--right {
+  display: block;
+  left: 50%;
+  transform-origin: left center;
+  transform: rotateY(0deg);
+}
+.sketchbook__flip--right.is-turning { transform: rotateY(-180deg); }
+
+.sketchbook__flip--left {
+  display: block;
+  left: 0;
+  transform-origin: right center;
+  transform: rotateY(0deg);
+}
+.sketchbook__flip--left.is-turning { transform: rotateY(180deg); }
+
+.sketchbook__face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.6rem;
+  overflow: hidden;
+}
+.sketchbook__face--back { transform: rotateY(180deg); }
+
+.sketchbook__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.sketchbook__btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid #d0d0d0;
+  background: transparent;
+  font-size: 1.1rem;
+  color: inherit;
+  transition: border-color 0.3s, color 0.3s, opacity 0.3s;
+}
+.sketchbook__btn:hover:not(:disabled) { border-color: var(--color-red); color: var(--color-red); }
+.sketchbook__btn:disabled { opacity: 0.3; cursor: default; }
+
+.sketchbook__counter {
+  font-family: var(--font-display-alt);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+  min-width: 140px;
+  text-align: center;
+}
+
+/* One page at a time on phones */
+@media (max-width: 700px) {
+  .sketchbook__page--left { display: none; }
+  .sketchbook__page--right { width: 100%; border-radius: 4px; box-shadow: none; }
+  .sketchbook__spine, .sketchbook__flip { display: none !important; }
+}
+
+/* Prints fill the page edge-to-edge — no padding, no border.
+   Scanned prints carry their own paper margin, so cover-cropping
+   trims that rather than the ink. */
+.sketchbook[data-source="prints"] .sketchbook__page,
+.sketchbook[data-source="prints"] .sketchbook__face {
+  padding: 0;
+}
+.sketchbook[data-source="prints"] .sketchbook__page img,
+.sketchbook[data-source="prints"] .sketchbook__face img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  object-fit: cover;
 }

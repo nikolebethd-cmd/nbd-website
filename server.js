@@ -20,7 +20,7 @@ const path    = require('path');
 const fs      = require('fs');
 const Stripe  = require('stripe');
 
-const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
+const stripe = process.env.STRIPE_SECRET_KEY ? Stripe(process.env.STRIPE_SECRET_KEY) : null;
 
 const CLOUD_NAME = process.env.CLOUDINARY_CLOUD_NAME || 'dljs01zmp';
 
@@ -42,6 +42,16 @@ const DEV_MODE = process.env.DEV_MODE !== 'false'; // true by default locally
 const galleriesPath = path.join(__dirname, 'galleries.json');
 function loadGalleries() {
   return JSON.parse(fs.readFileSync(galleriesPath, 'utf8')).galleries;
+}
+
+// ── Load art config ─────────────────────────────────────────────────────────
+// Server-side source of truth for prices — never trust a price from the client.
+const artPath = path.join(__dirname, 'art.json');
+function loadArt() {
+  return JSON.parse(fs.readFileSync(artPath, 'utf8')).art;
+}
+function saveArt(art) {
+  fs.writeFileSync(artPath, JSON.stringify({ art }, null, 2));
 }
 
 // ── In-memory purchase token store ──────────────────────────────────────────
@@ -260,6 +270,87 @@ app.get('/api/download/:galleryId', async (req, res) => {
   // Return list of Cloudinary download URLs as JSON for client-side handling
   const urls = photos.map(f => cloudinaryUrl(galleryId, f, false));
   res.json({ title: gallery.title, urls });
+});
+
+/* ============================================
+   ORIGINAL ARTWORK — Stripe Checkout
+   Each painting is one-of-one, so availability is
+   re-checked at session creation and again on completion.
+   ============================================ */
+
+// ── Art list ─────────────────────────────────────────────────────────────────
+app.get('/api/art', (req, res) => {
+  res.json(loadArt());
+});
+
+// ── Buy a painting — create Stripe Checkout session ──────────────────────────
+app.post('/api/art/:id/purchase', async (req, res) => {
+  if (!stripe) {
+    return res.status(503).json({ error: 'Online payment is not configured yet.' });
+  }
+
+  const piece = loadArt().find(a => a.id === req.params.id);
+  if (!piece) return res.status(404).json({ error: 'Piece not found' });
+  if (piece.status === 'sold') return res.status(409).json({ error: 'This piece has sold.' });
+  if (typeof piece.price !== 'number') {
+    return res.status(409).json({ error: 'This piece is price-on-request — please get in touch.' });
+  }
+
+  const origin = `${req.protocol}://${req.get('host')}`;
+
+  try {
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      line_items: [{
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: piece.title,
+            description: `${piece.medium} — ${piece.size}`,
+            images: piece.image ? [piece.image] : undefined,
+          },
+          unit_amount: Math.round(piece.price * 100),
+        },
+        quantity: 1,
+      }],
+      mode: 'payment',
+      // Physical original — collect where to ship it.
+      shipping_address_collection: { allowed_countries: ['US', 'CA'] },
+      phone_number_collection: { enabled: true },
+      metadata: { artId: piece.id, artTitle: piece.title },
+      success_url: `${origin}/api/art/complete?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url:  `${origin}/art.html`,
+    });
+    res.json({ url: session.url });
+  } catch (err) {
+    console.error('Stripe art error:', err);
+    res.status(500).json({ error: 'Payment setup failed.' });
+  }
+});
+
+// ── Art purchase complete — verify, mark sold, redirect ──────────────────────
+app.get('/api/art/complete', async (req, res) => {
+  if (!stripe) return res.redirect('/art.html');
+  const { session_id } = req.query;
+
+  try {
+    const session = await stripe.checkout.sessions.retrieve(session_id);
+    if (session.payment_status !== 'paid') return res.redirect('/art.html?purchase=failed');
+
+    const artId = session.metadata && session.metadata.artId;
+    const art   = loadArt();
+    const piece = art.find(a => a.id === artId);
+
+    if (piece && piece.status !== 'sold') {
+      piece.status = 'sold';
+      saveArt(art);
+      console.log(`SOLD: ${piece.title} — ${session.customer_details?.email || 'unknown buyer'}`);
+    }
+    res.redirect(`/art.html?purchase=success&piece=${encodeURIComponent(artId || '')}`);
+  } catch (err) {
+    console.error('Stripe art verify error:', err);
+    res.redirect('/art.html?purchase=failed');
+  }
 });
 
 // ── Start ─────────────────────────────────────────────────────────────────────

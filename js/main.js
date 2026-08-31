@@ -87,7 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Render art cards ---
   const artGrid = document.getElementById('art-grid');
   if (artGrid && SITE_DATA.artPieces) {
-    artGrid.innerHTML = SITE_DATA.artPieces.map(a => {
+    function renderArt(pieces) {
+      artGrid.innerHTML = pieces.map(a => {
       const isSold = a.status === 'sold';
       return `
         <div class="art-card ${isSold ? 'art-card--sold' : ''} reveal">
@@ -101,22 +102,74 @@ document.addEventListener('DOMContentLoaded', () => {
             <h3 class="art-card__title">${a.title}</h3>
             <p class="art-card__details">${a.medium}</p>
             <p class="art-card__details">${a.size}</p>
-            <p class="art-card__price">$${a.price.toLocaleString()}</p>
-            ${!isSold ? `<a href="mailto:${SITE_DATA.site.email}?subject=Inquiry: ${encodeURIComponent(a.title)}" class="btn btn--small btn--arrow"><span>Contact to Purchase</span></a>` : ''}
+            ${typeof a.price === 'number' ? `<p class="art-card__price">$${a.price.toLocaleString()}</p>` : `<p class="art-card__price art-card__price--ask">Price on request</p>`}
+            ${!isSold ? (
+              typeof a.price === 'number' && a.id
+                ? `<button class="btn btn--small btn--arrow art-buy" data-art-id="${a.id}"><span>Buy — $${a.price.toLocaleString()}</span></button>`
+                : `<a href="mailto:${SITE_DATA.site.email}?subject=Inquiry: ${encodeURIComponent(a.title)}" class="btn btn--small btn--arrow"><span>Contact to Purchase</span></a>`
+            ) : ''}
+            <p class="art-card__error" hidden></p>
           </div>
         </div>
       `;
-    }).join('');
-    initReveals(artGrid);
+      }).join('');
+      initReveals(artGrid);
+      bindBuyButtons();
+    }
+
+    // Send the shopper to Stripe Checkout. Price comes from the server, never here.
+    function bindBuyButtons() {
+      artGrid.querySelectorAll('.art-buy').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const card = btn.closest('.art-card');
+          const err  = card.querySelector('.art-card__error');
+          const label = btn.querySelector('span').textContent;
+          btn.disabled = true;
+          btn.querySelector('span').textContent = 'Redirecting…';
+          err.hidden = true;
+          try {
+            const r = await fetch(`/api/art/${btn.dataset.artId}/purchase`, { method: 'POST' });
+            const data = await r.json();
+            if (r.ok && data.url) { window.location.href = data.url; return; }
+            err.textContent = data.error || 'Could not start checkout.';
+          } catch (e) {
+            err.textContent = 'Could not reach the server.';
+          }
+          err.hidden = false;
+          btn.disabled = false;
+          btn.querySelector('span').textContent = label;
+        });
+      });
+    }
+
+    // Prefer live art data from the server; fall back to SITE_DATA offline.
+    fetch('/api/art')
+      .then(r => r.ok ? r.json() : null)
+      .then(data => renderArt(Array.isArray(data) && data.length ? data : SITE_DATA.artPieces))
+      .catch(() => renderArt(SITE_DATA.artPieces));
+
+    // Confirmation banner after returning from Stripe
+    const params = new URLSearchParams(location.search);
+    if (params.get('purchase')) {
+      const ok = params.get('purchase') === 'success';
+      const note = document.createElement('div');
+      note.className = `art-notice ${ok ? 'art-notice--ok' : 'art-notice--fail'}`;
+      note.textContent = ok
+        ? 'Thank you — your purchase is confirmed. You’ll get an email receipt, and I’ll be in touch about delivery.'
+        : 'That payment didn’t go through. Nothing was charged — feel free to try again.';
+      artGrid.parentNode.insertBefore(note, artGrid);
+    }
   }
 
   // --- Render video cards ---
   const videoGrid     = document.getElementById('video-grid');
   const videoFilters  = document.getElementById('video-filters');
   const videoLightbox = document.getElementById('video-lightbox');
+  const shortsGrid    = document.getElementById('shorts-grid');
+  const shortsSection = document.getElementById('shorts-section');
 
-  if (videoGrid && SITE_DATA.videos) {
-    const videos = SITE_DATA.videos;
+  if (videoGrid || shortsGrid) {
+    const videos = SITE_DATA.videos || [];
 
     // Extract YouTube video ID from any standard YouTube URL
     function getYouTubeId(url) {
@@ -136,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Build filter tag list from all videos
     const allTags = [...new Set(videos.flatMap(v => v.tags || []))].sort();
-    if (allTags.length > 1 && videoFilters) {
+    if (allTags.length > 1 && videoFilters && videoGrid) {
       videoFilters.style.display = '';
       videoFilters.innerHTML =
         `<button class="video-filter-btn video-filter-btn--active" data-tag="all">All</button>` +
@@ -153,39 +206,68 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
+    // Build one card. `vertical` switches to the 9:16 short-form treatment.
+    // Untitled shorts render as bare tiles: thumbnail only, duration overlaid.
+    function cardHTML(v, vertical) {
+      const thumb = getThumbnail(v);
+      const meta  = [v.duration, v.year].filter(Boolean).join(' · ');
+      const isYT  = v.type === 'youtube';
+      const title = v.title || '';
+      const badge = vertical ? (v.duration || 'Short') : (isYT ? 'YouTube' : 'Film');
+      return `
+        <div class="video-card ${vertical ? 'video-card--vertical' : ''} ${title ? '' : 'video-card--tile'} reveal">
+          <div class="video-card__thumbnail"
+            data-src="${v.src}"
+            data-type="${v.type || 'local'}"
+            data-title="${title}"
+            data-meta="${meta}"
+            data-vertical="${vertical ? '1' : '0'}">
+            ${thumb
+              ? `<img src="${thumb}" alt="${title || 'Short edit'}" loading="lazy">`
+              : `<div class="video-card__thumb-placeholder"></div>`}
+            <div class="video-card__play"></div>
+            <span class="video-card__badge ${isYT ? 'video-card__badge--yt' : 'video-card__badge--local'}">${badge}</span>
+          </div>
+          ${title ? `
+          <div class="video-card__body">
+            <h3 class="video-card__title">${title}</h3>
+            ${v.description ? `<p class="video-card__desc">${v.description}</p>` : ''}
+            ${meta ? `<p class="video-card__meta">${meta}</p>` : ''}
+          </div>` : ''}
+        </div>
+      `;
+    }
+
     // Render video card grid
     function renderCards(tag) {
       const list = tag === 'all' ? videos : videos.filter(v => (v.tags || []).includes(tag));
-      videoGrid.innerHTML = list.map(v => {
-        const thumb  = getThumbnail(v);
-        const meta   = [v.duration, v.year].filter(Boolean).join(' · ');
-        const isYT   = v.type === 'youtube';
-        return `
-          <div class="video-card reveal">
-            <div class="video-card__thumbnail"
-              data-src="${v.src}"
-              data-type="${v.type || 'local'}"
-              data-title="${v.title}"
-              data-meta="${meta}">
-              ${thumb
-                ? `<img src="${thumb}" alt="${v.title}" loading="lazy">`
-                : `<div class="video-card__thumb-placeholder"></div>`}
-              <div class="video-card__play"></div>
-              <span class="video-card__badge ${isYT ? 'video-card__badge--yt' : 'video-card__badge--local'}">${isYT ? 'YouTube' : 'Film'}</span>
-            </div>
-            <div class="video-card__body">
-              <h3 class="video-card__title">${v.title}</h3>
-              ${v.description ? `<p class="video-card__desc">${v.description}</p>` : ''}
-              ${meta ? `<p class="video-card__meta">${meta}</p>` : ''}
-            </div>
-          </div>
-        `;
-      }).join('');
-      bindClicks();
+      videoGrid.innerHTML = list.map(v => cardHTML(v, false)).join('');
+      bindClicks(videoGrid);
       initReveals(videoGrid);
     }
 
-    renderCards('all');
+    if (videoGrid) renderCards('all');
+
+    // Render vertical short-form grid. data-limit caps it (preview on the video
+    // page); the whole section hides when there's nothing to show.
+    const shorts = SITE_DATA.shorts || [];
+    if (shortsGrid) {
+      if (shorts.length) {
+        const limit = parseInt(shortsGrid.dataset.limit, 10) || shorts.length;
+        // ?index shows each tile's position, so a specific clip can be named
+        // when picking which to keep or cut. Hidden on the public page.
+        const showIndex = new URLSearchParams(location.search).has('index');
+        shortsGrid.innerHTML = shorts.slice(0, limit).map((v, i) =>
+          cardHTML(showIndex ? { ...v, title: `#${i + 1}` } : v, true)
+        ).join('');
+        bindClicks(shortsGrid);
+        initReveals(shortsGrid);
+        const countEl = document.getElementById('shorts-count');
+        if (countEl) countEl.textContent = shorts.length;
+      } else if (shortsSection) {
+        shortsSection.style.display = 'none';
+      }
+    }
 
     // Lightbox open / close
     const vlbPlayer = document.getElementById('vlb-player');
@@ -193,9 +275,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const vlbInfo   = document.getElementById('vlb-info');
     const vlbClose  = document.getElementById('vlb-close');
 
-    function openLightbox(src, type, title, meta) {
+    function openLightbox(src, type, title, meta, vertical) {
       vlbTitle.textContent = title;
       vlbInfo.textContent  = meta;
+      videoLightbox.classList.toggle('video-lightbox--vertical', !!vertical);
       if (type === 'youtube') {
         const id = getYouTubeId(src);
         vlbPlayer.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0" allowfullscreen allow="autoplay; encrypted-media; fullscreen" frameborder="0"></iframe>`;
@@ -214,10 +297,13 @@ document.addEventListener('DOMContentLoaded', () => {
       vlbPlayer.innerHTML = '';
     }
 
-    function bindClicks() {
-      videoGrid.querySelectorAll('.video-card__thumbnail').forEach(thumb => {
+    function bindClicks(container) {
+      container.querySelectorAll('.video-card__thumbnail').forEach(thumb => {
         thumb.addEventListener('click', () =>
-          openLightbox(thumb.dataset.src, thumb.dataset.type, thumb.dataset.title, thumb.dataset.meta)
+          openLightbox(
+            thumb.dataset.src, thumb.dataset.type, thumb.dataset.title,
+            thumb.dataset.meta, thumb.dataset.vertical === '1'
+          )
         );
       });
     }
@@ -231,18 +317,95 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- Sketchbooks: flip through a set of images two pages at a time ---
+  // Each .sketchbook element declares data-source (a key on SITE_DATA).
+  // Hidden automatically while its source is empty.
+  document.querySelectorAll('.sketchbook').forEach(root => {
+    const section = root.closest('section');
+    const pages = (SITE_DATA[root.dataset.source] || []).map(a => a.image).filter(Boolean);
+
+    if (!pages.length) {
+      if (section) section.style.display = 'none';
+      return;
+    }
+
+    const q       = sel => root.querySelector(sel);
+    const left    = q('.js-sb-left');
+    const right   = q('.js-sb-right');
+    const flip    = q('.js-sb-flip');
+    const front   = q('.js-sb-front');
+    const back    = q('.js-sb-back');
+    const counter = q('.js-sb-counter');
+    const prevBtn = q('.js-sb-prev');
+    const nextBtn = q('.js-sb-next');
+
+    let spread = 0;                                  // index of the left-hand page
+    const lastSpread = Math.max(0, (Math.ceil(pages.length / 2) - 1) * 2);
+    let busy = false;
+
+    // Blank rather than broken when a spread runs past the end
+    function paint(img, i) {
+      const s = pages[i] || '';
+      img.style.visibility = s ? 'visible' : 'hidden';
+      if (s) img.src = s;
+    }
+
+    function render() {
+      paint(left,  spread);
+      paint(right, spread + 1);
+      counter.textContent =
+        `${Math.min(spread + 1, pages.length)}–${Math.min(spread + 2, pages.length)} / ${pages.length}`;
+      prevBtn.disabled = spread === 0;
+      nextBtn.disabled = spread >= lastSpread;
+    }
+
+    function turn(dir) {
+      if (busy) return;
+      const target = spread + dir * 2;
+      if (target < 0 || target > lastSpread) return;
+      busy = true;
+
+      if (dir > 0) {
+        // Right page lifts and turns left; its back reveals the next left page
+        paint(front, spread + 1);
+        paint(back,  target);
+        flip.className = 'sketchbook__flip js-sb-flip sketchbook__flip--right';
+      } else {
+        // Left page turns back to the right, revealing the previous spread
+        paint(front, spread);
+        paint(back,  target + 1);
+        flip.className = 'sketchbook__flip js-sb-flip sketchbook__flip--left';
+      }
+      requestAnimationFrame(() => flip.classList.add('is-turning'));
+
+      setTimeout(() => {
+        spread = target;
+        render();
+        flip.className = 'sketchbook__flip js-sb-flip';
+        busy = false;
+      }, 700);
+    }
+
+    nextBtn.addEventListener('click', () => turn(1));
+    prevBtn.addEventListener('click', () => turn(-1));
+    // Arrow keys drive whichever book you last touched
+    root.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') turn(1);
+      if (e.key === 'ArrowLeft')  turn(-1);
+    });
+    [left, right].forEach(img => img.addEventListener('click', () => {
+      if (img.src && img.style.visibility !== 'hidden') openLightbox(img.src);
+    }));
+
+    render();
+  });
+
   // --- Render archive items ---
   const archiveGrid = document.getElementById('archive-grid');
   if (archiveGrid && SITE_DATA.archiveItems) {
     archiveGrid.innerHTML = SITE_DATA.archiveItems.map(a => `
       <div class="archive-item" data-src="${a.image}">
-        ${a.image ? `<img src="${a.image}" alt="${a.title}" loading="lazy">` : `<div class="placeholder-img" style="aspect-ratio:${Math.random() > 0.5 ? '3/4' : '4/3'}">Your Image</div>`}
-        <div class="archive-item__overlay">
-          <div class="archive-item__info">
-            <p class="archive-item__title">${a.title}</p>
-            <p class="archive-item__type">${a.type}</p>
-          </div>
-        </div>
+        ${a.image ? `<img src="${a.image}" alt="${a.title || 'Drawing'}" loading="lazy">` : `<div class="placeholder-img" style="aspect-ratio:${Math.random() > 0.5 ? '3/4' : '4/3'}">Your Image</div>`}
       </div>
     `).join('');
 
@@ -266,7 +429,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     aboutContent.innerHTML = `
       <span class="label section__label">About</span>
-      <h2>The Story</h2>
+      <h2>${a.headline || 'The Story'}</h2>
+      ${a.subhead ? `<p class="about__subhead">${a.subhead}</p>` : ''}
       ${a.bio.map(p => `<p>${p}</p>`).join('')}
       <div class="about__values">
         ${a.values.map(v => `<span class="about__value-tag">${v}</span>`).join('')}

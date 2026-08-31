@@ -1,0 +1,139 @@
+{
+  "art": [
+    {
+      "id": "first-tracks-on-baldy",
+      "title": "First Tracks on Baldy",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/site-images/paint-first-tracks-baldy.jpg",
+      "medium": "Acrylic on canvas",
+      "size": "24\" × 20\"",
+      "price": null,
+      "status": "sold"
+    },
+    {
+      "id": "south-beach-storm-swell",
+      "title": "South Beach Storm Swell",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/site-images/paint-south-beach-storm-swell.jpg",
+      "medium": "Acrylic on canvas",
+      "size": "24\" × 20\"",
+      "price": 600,
+      "status": "available"
+    },
+    {
+      "id": "sea-hawg",
+      "title": "Sea Hawg",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/site-images/paint-sailboats.jpg",
+      "medium": "Acrylic on canvas",
+      "size": "24\" × 20\"",
+      "price": null,
+      "status": "sold"
+    },
+    {
+      "id": "powder-country",
+      "title": "Powder Country",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/site-images/paint-powder-country-2026.jpg",
+      "medium": "Acrylic on canvas",
+      "size": "24\" × 20\"",
+      "price": 400,
+      "status": "available"
+    },
+    {
+      "id": "wombat-sunset",
+      "title": "Wombat Sunset",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/site-images/paint-wombat-sunset.jpg",
+      "medium": "Acrylic on canvas",
+      "size": "20\" × 20\"",
+      "price": null,
+      "status": "available"
+    },
+    {
+      "id": "gabagool",
+      "title": "Gabagool",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/site-images/paint-gabagool-2026.jpg",
+      "medium": "Acrylic on canvas",
+      "size": "24\" × 24\"",
+      "price": 600,
+      "status": "available"
+    },
+    {
+      "id": "sunset-swell",
+      "title": "Sunset Swell",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/site-images/paint-sunset-surf-2026.jpg",
+      "medium": "Acrylic on canvas",
+      "size": "12\" × 12\"",
+      "price": 100,
+      "status": "available"
+    },
+    {
+      "id": "mt-hood",
+      "title": "Mt Hood",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/site-images/paint-mt-hood.jpg",
+      "medium": "Acrylic on wood",
+      "size": "36\" × 24\"",
+      "price": 200,
+      "status": "available"
+    },
+    {
+      "id": "xpression",
+      "title": "Xpression",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/site-images/paint-xpression-2026.jpg",
+      "medium": "Acrylic on wood",
+      "size": "20\" × 20\"",
+      "price": 150,
+      "status": "available"
+    },
+    {
+      "id": "sunset-surf",
+      "title": "Sunset Surf",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/site-images/paint-sunset-surf-orange.jpg",
+      "medium": "Acrylic on canvas",
+      "size": "24\" × 20\"",
+      "price": 200,
+      "status": "available"
+    },
+    {
+      "id": "water-woman",
+      "title": "Water Woman",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/site-images/paint-water-woman.jpg",
+      "medium": "Acrylic on carved wood",
+      "size": "8\" × 10\"",
+      "price": 100,
+      "status": "available"
+    },
+    {
+      "id": "pacifico-surf",
+      "title": "Pacifico Surf",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/site-images/paint-pacifico-surf.jpg",
+      "medium": "Acrylic and ink on canvas",
+      "size": "12\" × 10\"",
+      "price": 150,
+      "status": "available"
+    },
+    {
+      "id": "blue-surf",
+      "title": "Blue Surf",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/site-images/paint-blue-surf.jpg",
+      "medium": "Acrylic on canvas",
+      "size": "10\" × 12\"",
+      "price": 150,
+      "status": "available"
+    },
+    {
+      "id": "life-is-a-game",
+      "title": "Life Is a Game",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/site-images/paint-life-is-a-game-2026.jpg",
+      "medium": "Acrylic on wood",
+      "size": "20\" × 20\"",
+      "price": 150,
+      "status": "available"
+    },
+    {
+      "id": "james-peak",
+      "title": "James Peak",
+      "image": "https://res.cloudinary.com/dljs01zmp/image/upload/site-images/paint-james-peak.jpg",
+      "medium": "Acrylic on canvas",
+      "size": "12\" × 18\"",
+      "price": 150,
+      "status": "available"
+    }
+  ]
+}

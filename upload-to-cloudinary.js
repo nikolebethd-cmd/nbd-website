@@ -1,14 +1,8 @@
-const cloudinary = require('cloudinary').v2;
+const cloudinary = require('./cloudinary-config');
 const sharp = require('sharp');
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
-
-cloudinary.config({
-  cloud_name: 'dljs01zmp',
-  api_key: '626545187848522',
-  api_secret: 'XD1_E1MzQ-jvwZNQBU2OKNSYP_U',
-});
 
 const galleryPhotosDir = path.join(__dirname, 'gallery-photos');
 const tmpDir = os.tmpdir();
