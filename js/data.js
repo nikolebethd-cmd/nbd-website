@@ -190,7 +190,7 @@ const SITE_DATA = {
   videos: [
     { title: "People of Powder Mountain", type: "local", src: "https://res.cloudinary.com/dljs01zmp/video/upload/v1788322826/site-videos/people-of-powder-mountain.mp4", thumbnail: "https://res.cloudinary.com/dljs01zmp/video/upload/so_2,c_fill,ar_16:9,g_auto,w_800,q_auto,f_auto/site-videos/people-of-powder-mountain.jpg", duration: "8:31", year: "2026" },
     { title: "South Beach Swell", type: "local", src: "https://res.cloudinary.com/dljs01zmp/video/upload/v1788134599/site-videos/south-beach-swell.mp4", thumbnail: "https://res.cloudinary.com/dljs01zmp/video/upload/so_2,c_fill,ar_16:9,g_auto,w_800,q_auto,f_auto/site-videos/south-beach-swell.jpg", duration: "1:23", year: "2026" },
-    { title: "Momento — A Mixed Media Film", type: "local", src: "https://res.cloudinary.com/dljs01zmp/video/upload/v1788135230/site-videos/momento-a-mixed-media-film.mp4", thumbnail: "https://res.cloudinary.com/dljs01zmp/video/upload/so_2,c_fill,ar_16:9,g_auto,w_800,q_auto,f_auto/site-videos/momento-a-mixed-media-film.jpg", duration: "5:04", year: "2026" },
+    { title: "Momento: A Mixed Media Film", type: "local", src: "https://res.cloudinary.com/dljs01zmp/video/upload/v1788135230/site-videos/momento-a-mixed-media-film.mp4", thumbnail: "https://res.cloudinary.com/dljs01zmp/video/upload/so_2,c_fill,ar_16:9,g_auto,w_800,q_auto,f_auto/site-videos/momento-a-mixed-media-film.jpg", duration: "5:04", year: "2026" },
   ],
 
   /* ------ Short Form / Vertical ------ */

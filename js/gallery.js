@@ -62,7 +62,7 @@
 
       galleryData = await res.json();
       photos = galleryData.photos || [];
-      document.title = `${galleryData.title} — NBD`;
+      document.title = `${galleryData.title} | NBD`;
       renderGallery();
     } catch (e) {
       console.error(e);
@@ -114,7 +114,7 @@
     if (galleryData.pricing && photos.length > 0) {
       galleryActions.innerHTML = `
         <button class="btn btn--outline gallery-dl-btn" data-action="buy-gallery">
-          Download Full Gallery — $${Number(galleryData.pricing.fullGallery).toFixed(2)}
+          Download Full Gallery ($${Number(galleryData.pricing.fullGallery).toFixed(2)})
         </button>
       `;
       galleryActions.querySelector('[data-action="buy-gallery"]')
@@ -146,7 +146,7 @@
             </button>
             ${galleryData.pricing ? `
             <button class="photo-item__buy" data-file="${file}" aria-label="Buy photo">
-              $${Number(galleryData.pricing.perPhoto).toFixed(2)} — Download
+              Download ($${Number(galleryData.pricing.perPhoto).toFixed(2)})
             </button>
             ` : ''}
           </div>

@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ${typeof a.price === 'number' ? `<p class="art-card__price">$${a.price.toLocaleString()}</p>` : `<p class="art-card__price art-card__price--ask">Price on request</p>`}
             ${!isSold ? (
               typeof a.price === 'number' && a.id
-                ? `<button class="btn btn--small btn--arrow art-buy" data-art-id="${a.id}"><span>Buy — $${a.price.toLocaleString()}</span></button>`
+                ? `<button class="btn btn--small btn--arrow art-buy" data-art-id="${a.id}"><span>Buy for $${a.price.toLocaleString()}</span></button>`
                 : `<a href="mailto:${SITE_DATA.site.email}?subject=Inquiry: ${encodeURIComponent(a.title)}" class="btn btn--small btn--arrow"><span>Contact to Purchase</span></a>`
             ) : ''}
             <p class="art-card__error" hidden></p>
@@ -155,8 +155,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const note = document.createElement('div');
       note.className = `art-notice ${ok ? 'art-notice--ok' : 'art-notice--fail'}`;
       note.textContent = ok
-        ? 'Thank you — your purchase is confirmed. You’ll get an email receipt, and I’ll be in touch about delivery.'
-        : 'That payment didn’t go through. Nothing was charged — feel free to try again.';
+        ? 'Thank you! Your purchase is confirmed. You’ll get an email receipt, and I’ll be in touch about delivery.'
+        : 'That payment didn’t go through. Nothing was charged, so feel free to try again.';
       artGrid.parentNode.insertBefore(note, artGrid);
     }
   }
