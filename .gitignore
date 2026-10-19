@@ -13,3 +13,6 @@ node_modules/
 # Environment
 .env
 .env.local
+
+# Local blog comments (production uses COMMENTS_DIR on a persistent disk)
+.data/

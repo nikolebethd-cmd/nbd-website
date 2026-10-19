@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Essay | NBD</title>
+  <meta name="description" content="An essay from the NBD blog.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav__logo">N<span>B</span>D<small class="nav__logo-sub">Creative Studios</small></a>
+    <ul class="nav__links">
+      <li><a href="galleries.html" class="nav__link">Galleries</a></li>
+      <li><a href="art.html" class="nav__link">Art</a></li>
+      <li><a href="videography.html" class="nav__link">Video</a></li>
+      <li><a href="archive.html" class="nav__link">Archive</a></li>
+      <li><a href="commissions.html" class="nav__link">Commissions</a></li>
+      <li><a href="blog.html" class="nav__link nav__link--active">Blog</a></li>
+      <li><a href="about.html" class="nav__link">About</a></li>
+    </ul>
+    <button class="nav__toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav__mobile">
+    <a href="galleries.html">Galleries</a>
+    <a href="art.html">Art</a>
+    <a href="videography.html">Video</a>
+    <a href="archive.html">Archive</a>
+    <a href="commissions.html">Commissions</a>
+    <a href="blog.html">Blog</a>
+    <a href="about.html">About</a>
+  </div>
+
+  <article class="essay" id="essay">
+    <header class="essay__header">
+      <a href="blog.html" class="essay__back label">&larr; All essays</a>
+      <h1 class="essay__title" id="essay-title"></h1>
+      <p class="essay__subtitle" id="essay-subtitle"></p>
+      <p class="essay__meta" id="essay-meta"></p>
+    </header>
+    <div class="essay__body" id="essay-body"></div>
+  </article>
+
+  <section class="comments" id="comments">
+    <h2 class="comments__title">Comments <span id="comment-count"></span></h2>
+
+    <form class="comment-form" id="comment-form">
+      <label class="comment-form__label" for="comment-name">Name <span>(optional)</span></label>
+      <input class="comment-form__input" id="comment-name" name="name" type="text" maxlength="60"
+             placeholder="Leave blank to post anonymously" autocomplete="name">
+      <label class="comment-form__label" for="comment-text">Comment</label>
+      <textarea class="comment-form__input comment-form__textarea" id="comment-text" name="text"
+                maxlength="3000" rows="5" required placeholder="Share your thoughts"></textarea>
+      <input class="comment-form__hp" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="comment-form__actions">
+        <button class="btn btn--accent" type="submit"><span>Post Comment</span></button>
+        <p class="comment-form__status" id="comment-status" role="status"></p>
+      </div>
+    </form>
+
+    <ol class="comment-list" id="comment-list"></ol>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <p class="footer__brand">N<span style="color:var(--color-red)">B</span>D</p>
+        <p class="footer__tagline">Photography, art, and film from the mountains to the sea.</p>
+      </div>
+      <div class="footer__links">
+        <div class="footer__col">
+          <p class="footer__col-title">Work</p>
+          <a href="galleries.html">Galleries</a>
+          <a href="art.html">Art</a>
+          <a href="videography.html">Videography</a>
+          <a href="archive.html">Archive</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Connect</p>
+          <a href="commissions.html">Commissions</a>
+          <a href="about.html">About</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">&copy; 2025 NBD. All rights reserved.</div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/blog.js"></script>
+</body>
+</html>

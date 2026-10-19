@@ -18,6 +18,7 @@ const express = require('express');
 const session = require('express-session');
 const path    = require('path');
 const fs      = require('fs');
+const crypto  = require('crypto');
 const Stripe  = require('stripe');
 
 const stripe = process.env.STRIPE_SECRET_KEY ? Stripe(process.env.STRIPE_SECRET_KEY) : null;
@@ -85,6 +86,7 @@ function validateToken(token, galleryId, file) {
 }
 
 // ── Middleware ───────────────────────────────────────────────────────────────
+app.set('trust proxy', true); // behind Render + Cloudflare; gives the visitor's IP in req.ip
 app.use(express.json());
 app.use(session({
   secret: process.env.SESSION_SECRET || 'nbd-local-dev-secret',
@@ -93,8 +95,8 @@ app.use(session({
   cookie: { maxAge: 7 * 24 * 60 * 60 * 1000 } // 1 week
 }));
 
-// Serve static site files
-app.use(express.static(__dirname));
+// Serve static site files. dotfiles: 'deny' keeps .git, .env and .data private.
+app.use(express.static(__dirname, { dotfiles: 'deny' }));
 
 // ── Gallery list ─────────────────────────────────────────────────────────────
 app.get('/api/galleries', (req, res) => {
@@ -361,6 +363,98 @@ app.get('/api/art/complete', async (req, res) => {
     console.error('Stripe art verify error:', err);
     res.redirect('/art.html?purchase=failed');
   }
+});
+
+// ── Blog essays + comments ───────────────────────────────────────────────────
+// Essays live in essays.json (in the repo). Comments are written to
+// COMMENTS_DIR, which must be a persistent disk in production — Render wipes
+// the app's own filesystem on every deploy. The default is a dot-folder so
+// express.static never serves it.
+const essaysPath = path.join(__dirname, 'essays.json');
+function loadEssays() {
+  return JSON.parse(fs.readFileSync(essaysPath, 'utf8')).essays;
+}
+
+const COMMENTS_DIR = process.env.COMMENTS_DIR || path.join(__dirname, '.data');
+const commentsPath = path.join(COMMENTS_DIR, 'comments.json');
+function loadComments() {
+  try { return JSON.parse(fs.readFileSync(commentsPath, 'utf8')); }
+  catch { return {}; }
+}
+function saveComments(all) {
+  fs.mkdirSync(COMMENTS_DIR, { recursive: true });
+  const tmp = commentsPath + '.tmp';
+  fs.writeFileSync(tmp, JSON.stringify(all, null, 2));
+  fs.renameSync(tmp, commentsPath);
+}
+
+// Light spam protection: one comment per IP every 30 seconds.
+const lastCommentAt = new Map();
+const COMMENT_COOLDOWN_MS = 30 * 1000;
+
+app.get('/api/essays', (req, res) => {
+  const comments = loadComments();
+  res.json(loadEssays().map(e => ({
+    slug: e.slug,
+    title: e.title,
+    subtitle: e.subtitle,
+    date: e.date || null,
+    readMinutes: e.readMinutes,
+    commentCount: (comments[e.slug] || []).length,
+  })));
+});
+
+app.get('/api/essays/:slug', (req, res) => {
+  const essay = loadEssays().find(e => e.slug === req.params.slug);
+  if (!essay) return res.status(404).json({ error: 'Not found' });
+  res.json(essay);
+});
+
+app.get('/api/essays/:slug/comments', (req, res) => {
+  res.json(loadComments()[req.params.slug] || []);
+});
+
+app.post('/api/essays/:slug/comments', (req, res) => {
+  const essay = loadEssays().find(e => e.slug === req.params.slug);
+  if (!essay) return res.status(404).json({ error: 'Not found' });
+
+  const { name, text, website } = req.body || {};
+  if (website) return res.status(400).json({ error: 'Rejected' }); // honeypot field bots fill in
+  const body = typeof text === 'string' ? text.trim() : '';
+  if (!body) return res.status(400).json({ error: 'Comment can’t be empty.' });
+  if (body.length > 3000) return res.status(400).json({ error: 'Comment is too long (3000 characters max).' });
+  const author = (typeof name === 'string' ? name.trim() : '').slice(0, 60) || null;
+
+  const ip = req.ip;
+  const last = lastCommentAt.get(ip) || 0;
+  if (Date.now() - last < COMMENT_COOLDOWN_MS) {
+    return res.status(429).json({ error: 'Slow down a little. Try again in a few seconds.' });
+  }
+  lastCommentAt.set(ip, Date.now());
+
+  const comment = {
+    id: crypto.randomBytes(8).toString('hex'),
+    name: author,
+    text: body,
+    createdAt: new Date().toISOString(),
+  };
+  const all = loadComments();
+  (all[essay.slug] = all[essay.slug] || []).push(comment);
+  saveComments(all);
+  res.status(201).json(comment);
+});
+
+// Delete a comment. Requires the ADMIN_KEY env var to be set and sent back.
+app.delete('/api/essays/:slug/comments/:id', (req, res) => {
+  const key = process.env.ADMIN_KEY;
+  if (!key || req.get('x-admin-key') !== key) return res.status(401).json({ error: 'Unauthorized' });
+  const all = loadComments();
+  const list = all[req.params.slug] || [];
+  const next = list.filter(c => c.id !== req.params.id);
+  if (next.length === list.length) return res.status(404).json({ error: 'Not found' });
+  all[req.params.slug] = next;
+  saveComments(all);
+  res.json({ ok: true });
 });
 
 // ── Start ─────────────────────────────────────────────────────────────────────
